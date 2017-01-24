@@ -15,11 +15,9 @@
   "scripts": {
     "dev": "node server",
     "build": "next build",
-    "start": "NODE_ENV=production node server",
-    "prestart": "npm -s run build"
+    "start": "NODE_ENV=production node server"
   },
   "devDependencies": {
-    "offline-plugin": "^4.5.5",
     "sw-precache-webpack-plugin": "^0.7.2"
   }
 }

@@ -1,0 +1,25 @@
+{
+  "name": "next-preact",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {},
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "next": "^2.0.0-beta.18",
+    "preact": "^7.1.0",
+    "preact-compat": "^3.11.0",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0"
+  },
+  "scripts": {
+    "dev": "node server",
+    "build": "next build",
+    "start": "NODE_ENV=production node server",
+    "prestart": "npm -s run build"
+  },
+  "devDependencies": {
+    "offline-plugin": "^4.5.5",
+    "sw-precache-webpack-plugin": "^0.7.2"
+  }
+}

@@ -80,7 +80,7 @@ Simple right? :smile:
 Just follow [Mars's Guide](https://github.com/mars/heroku-nextjs) and you're good to go :clap:
 
 ## Contribution
-I'm open to contributions & suggestions to make this a lot better :hand:
+I'm open to contributions & suggestions in making this a lot better :hand:
 
 ## License
 

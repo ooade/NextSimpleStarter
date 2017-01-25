@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 module.exports = {
@@ -16,7 +15,7 @@ module.exports = {
           filename: 'sw.js',
           staticFileGlobsIgnorePatterns: [/\.next\//],
           staticFileGlobs: [
-            /* Pass static files to precache here */
+            'static/**/*' // Precache all static files by default
           ],
           forceDelete: true,
           runtimeCaching: [

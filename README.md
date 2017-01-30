@@ -1,6 +1,8 @@
 # NextSimpleStarter
 Simple PWA boilerplate with nextjs and preact
 
+[![Code Climate Badge](https://codeclimate.com/github/ooade/NextSimpleStarter/badges/gpa.svg)](https://codeclimate.com/github/ooade/NextSimpleStarter/badges)
+
 # Quick-Start Guide
 
 - [Installation](#installation) :package:

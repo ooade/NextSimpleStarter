@@ -13,7 +13,9 @@ class Todo extends React.Component {
     this.removeTodo = this.removeTodo.bind(this);
   }
 
-  addTodos() {
+  addTodos(e) {
+    e.preventDefault();
+    
     this.props.addTodo(this.state.text);
     this.setState({ text: '' });
   }
@@ -25,7 +27,7 @@ class Todo extends React.Component {
   render() {
     return (
       <div className='mdl-card mdl-shadow--2dp'>
-        <form action='javascript:' onSubmit={this.addTodos}>
+        <form onSubmit={this.addTodos}>
           <div className='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
             <input
               type='text'

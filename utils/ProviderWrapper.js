@@ -14,4 +14,4 @@ export default function(ComposedComponent) {
   }
 
   return ProviderWrapper;
-};
+}

@@ -22,7 +22,7 @@ module.exports = {
             // Example with different handlers
             {
               handler: 'fastest',
-              urlPattern: /[.](png|jpg)/
+              urlPattern: /[.](png|jpg|css)/
             },
             {
               handler: 'networkFirst',

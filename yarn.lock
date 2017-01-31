@@ -2457,9 +2457,9 @@ pkg-dir@^1.0.0:
   dependencies:
     find-up "^1.0.0"
 
-preact-compat@^3.11.0:
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/preact-compat/-/preact-compat-3.11.0.tgz#be6348945e0c4f2e5b9ed7afb33b1bc095e6c829"
+preact-compat@^3.13.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/preact-compat/-/preact-compat-3.13.0.tgz#ca3f57adb5c3950411313078d34ba6ea74a547d0"
   dependencies:
     preact-render-to-string "^3.2.1"
     preact-transition-group "^1.1.0"

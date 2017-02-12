@@ -88,3 +88,6 @@ I'm open to contributions & suggestions in making this a lot better :hand:
 ## License
 
 MIT
+
+### Notable Alternatives
+[NextJS starter](https://github.com/iaincollins/nextjs-starter) - A starter project for Next.js with and email and oAuth authentication.

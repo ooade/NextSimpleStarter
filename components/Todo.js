@@ -5,22 +5,18 @@ import { addTodo, removeTodo } from '../actions/todo';
 import TodoItem from './TodoItem';
 
 class Todo extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { text: '' };
-    this.addTodos = this.addTodos.bind(this);
-    this.removeTodo = this.removeTodo.bind(this);
+  state = {
+    text: '',
   }
 
-  addTodos(e) {
+  addTodos = (e) => {
     e.preventDefault();
     
     this.props.addTodo(this.state.text);
     this.setState({ text: '' });
   }
 
-  removeTodo(todo) {
+  removeTodo = (todo) => {
     this.props.removeTodo(todo);
   }
 

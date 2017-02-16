@@ -63,7 +63,7 @@ yarn run build
 ```
 or
 ```sh
-yarn run build
+npm run build
 ```
 
 You can now deploy the contents of the `build` directory to production!

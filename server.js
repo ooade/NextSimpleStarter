@@ -15,9 +15,9 @@ app.prepare()
 
     server.get('*', (req, res) => handle(req, res));
 
-    server.listen(3000, err => {
+    server.listen(3003, err => {
       if (err) throw error;
 
-      console.log('> App running on port 3000');
+      console.log('> App running on port 3003');
     });
   });

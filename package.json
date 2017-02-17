@@ -6,9 +6,9 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.14.0",
-    "next": "^2.0.0-beta.18",
-    "preact": "^7.1.0",
-    "preact-compat": "^3.13.0",
+    "next": "2.0.0-beta.29",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0"
   },

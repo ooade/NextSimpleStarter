@@ -4,11 +4,6 @@ module.exports = {
   webpack: (config, { dev }) => {
     /* Enable only in Production */
     if (!dev) {
-      // Use Preact
-      config.resolve.alias = {
-        'react': 'preact-compat/dist/preact-compat',
-        'react-dom': 'preact-compat/dist/preact-compat'
-      }
       // Service Worker
       config.plugins.push(
         new SWPrecacheWebpackPlugin({

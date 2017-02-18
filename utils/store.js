@@ -2,10 +2,6 @@ import { createStore, compose, applyMiddleware } from 'redux';
 
 import rootReducer from '../reducers';
 
-const defaultState = {
-	todos: []
-};
-
 const isClient = typeof window !== 'undefined';
 
 const enhancers = compose(
@@ -14,6 +10,4 @@ const enhancers = compose(
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
-const store = createStoreWithMiddleware(rootReducer, defaultState, enhancers);
-
-export default store;
+export default(initialState) => createStoreWithMiddleware(rootReducer, initialState, enhancers);

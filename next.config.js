@@ -8,6 +8,7 @@ module.exports = {
       config.plugins.push(
         new SWPrecacheWebpackPlugin({
           filename: 'sw.js',
+          minify: true,
           staticFileGlobsIgnorePatterns: [/\.next\//],
           staticFileGlobs: [
             'static/**/*' // Precache all static files by default
@@ -21,7 +22,7 @@ module.exports = {
             },
             {
               handler: 'networkFirst',
-              urlPattern: /.*/ //cache all files
+              urlPattern: /^http.*/ //cache all files
             }
           ]
         })

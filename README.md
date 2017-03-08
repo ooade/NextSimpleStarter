@@ -1,8 +1,11 @@
+<p align="center">
+<img src="logo.png" alt="logo"/>
+<br/>
+<a href="https://travis-ci.org/ooade/NextSimpleStarter"><img src="https://travis-ci.org/ooade/NextSimpleStarter.svg?branch=master" alt="travis-ci"/></a> <a href="https://codeclimate.com/github/ooade/NextSimpleStarter/badges"><img src="https://codeclimate.com/github/ooade/NextSimpleStarter/badges/gpa.svg" alt="codeclimate-gpa-badge"/></a> <a href="https://codeclimate.com/github/ooade/NextSimpleStarter"><img src="https://codeclimate.com/github/ooade/NextSimpleStarter/badges/issue_count.svg" alt="codeclimate-issues-badge"/></a>
+</p>
+
 # NextSimpleStarter
 Simple NextJS PWA boilerplate.
-
-[![Build Status](https://travis-ci.org/ooade/NextSimpleStarter.svg?branch=master)](https://travis-ci.org/ooade/NextSimpleStarter)
-[![Code Climate Badge](https://codeclimate.com/github/ooade/NextSimpleStarter/badges/gpa.svg)](https://codeclimate.com/github/ooade/NextSimpleStarter/badges) [![Issue Count](https://codeclimate.com/github/ooade/NextSimpleStarter/badges/issue_count.svg)](https://codeclimate.com/github/ooade/NextSimpleStarter)
 
 # Quick-Start Guide
 

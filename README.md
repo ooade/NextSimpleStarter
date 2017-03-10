@@ -6,6 +6,8 @@
 
 # Quick-Start Guide
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ooade/NextSimpleStarter.svg)](https://greenkeeper.io/)
+
 - [Installation](#installation) :package:
 - [Development Workflow](#development-workflow) :fire:
 - [Deployment](#deployment) :rocket:

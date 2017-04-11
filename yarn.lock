@@ -2655,6 +2655,11 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
+<<<<<<< HEAD
+prop-types@^15.5.7, prop-types@~15.5.7:
+  version "15.5.7"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.7.tgz#231c4f29cdd82e355011d4889386ca9059544dd1"
+=======
 prop-types@^15.5.7:
   version "15.5.7"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.7.tgz#231c4f29cdd82e355011d4889386ca9059544dd1"
@@ -2664,6 +2669,7 @@ prop-types@^15.5.7:
 prop-types@~15.5.0:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.4.tgz#2ed3692716a5060f8cc020946d8238e7419d92c0"
+>>>>>>> master
   dependencies:
     fbjs "^0.8.9"
 
@@ -2744,14 +2750,14 @@ react-deep-force-update@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-2.0.1.tgz#4f7f6c12c3e7de42f345992a3c518236fa1ecad3"
 
-react-dom@15.5.3:
-  version "15.5.3"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.5.3.tgz#2ee127ce942df55da53111ae303316e68072b5c5"
+react-dom@15.5.4:
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.5.4.tgz#ba0c28786fd52ed7e4f2135fe0288d462aef93da"
   dependencies:
     fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
-    prop-types "~15.5.0"
+    prop-types "~15.5.7"
 
 react-hot-loader@3.0.0-beta.6:
   version "3.0.0-beta.6"

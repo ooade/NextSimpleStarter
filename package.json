@@ -8,7 +8,7 @@
     "next": "2.1.1",
     "next-redux-wrapper": "^1.0.0",
     "react": "15.5.4",
-    "react-dom": "15.5.3",
+    "react-dom": "15.5.4",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0"
   },

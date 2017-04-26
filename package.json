@@ -18,6 +18,6 @@
     "start": "NODE_ENV=production node server"
   },
   "devDependencies": {
-    "sw-precache-webpack-plugin": "^0.9.0"
+    "sw-precache-webpack-plugin": "^0.10.0"
   }
 }

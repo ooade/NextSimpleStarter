@@ -1,7 +1,9 @@
 {
-  "name": "NextSimpleStarter",
+  "name": "next-simple-starter",
   "version": "1.0.0",
-  "repository": {},
+  "repository": {
+    "url": "https://github.com/ooade/NextSimpleStarter"
+  },
   "license": "MIT",
   "dependencies": {
     "express": "^4.14.0",

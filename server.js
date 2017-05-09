@@ -6,18 +6,21 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dir: '.', dev });
 const handle = app.getRequestHandler();
 
-app.prepare()
-  .then(_ => {
-    const server = express();
+const PORT = process.env.PORT || 3000;
 
-    // serve service worker
-    server.get('/sw.js', (req, res) => res.sendFile(path.resolve('./.next/sw.js')));
+app.prepare().then(_ => {
+	const server = express();
 
-    server.get('*', (req, res) => handle(req, res));
+	// serve service worker
+	server.get('/sw.js', (req, res) =>
+		res.sendFile(path.resolve('./.next/sw.js'))
+	);
 
-    server.listen(3000, err => {
-      if (err) throw error;
+	server.get('*', (req, res) => handle(req, res));
 
-      console.log('> App running on port 3000');
-    });
-  });
+	server.listen(PORT, err => {
+		if (err) throw error;
+
+		console.log(`> App running on port ${PORT}`);
+	});
+});

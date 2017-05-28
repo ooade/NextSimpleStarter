@@ -19,7 +19,7 @@ app.prepare().then(_ => {
 	server.get('*', (req, res) => handle(req, res));
 
 	server.listen(PORT, err => {
-		if (err) throw error;
+		if (err) throw err;
 
 		console.log(`> App running on port ${PORT}`);
 	});

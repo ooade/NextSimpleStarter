@@ -6,7 +6,6 @@ import Fork from '../components/Fork';
 import Todo from '../components/Todo';
 
 import initStore from '../utils/store';
-import '../utils/offline-install'; // Get our service worker on the page
 
 class Index extends React.Component {
 	static async getInitialProps({ store }) {

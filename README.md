@@ -4,13 +4,13 @@
 <h3 align="center">Simple NextJS PWA boilerplate.</h3></p>
 </p>
 
-# Quick-Start Guide
+# Contents
 
-- [Installation](#installation) :package:
-- [Development Workflow](#development-workflow) :fire:
-- [Deployment](#deployment) :rocket:
+- [Installation](#installation)
+- [Development Workflow](#development-workflow)
+- [Deployment](#deployment)
 
-## Installation :package:
+## Installation
 
 **1. Clone this repo:**
 
@@ -43,7 +43,7 @@ npm install
 
 
 
-## Development Workflow :fire:
+## Development Workflow
 
 
 **4. Start a live-reload development server:**
@@ -68,7 +68,7 @@ npm run build
 
 You can now deploy the contents of the `build` directory to production!
 
-## Deployment :rocket:
+## Deployment
 
 **now:**
 

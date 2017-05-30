@@ -4,50 +4,36 @@
 <h3 align="center">Simple NextJS PWA boilerplate.</h3></p>
 </p>
 
-# Contents
+## Contents
 
 - [Installation](#installation)
 - [Development Workflow](#development-workflow)
 - [Deployment](#deployment)
 
-## Installation
-
-**1. Clone this repo:**
-
+### Installation
+Clone repo: 
 ```sh
 git clone https://github.com/ooade/NextSimpleStarter.git
 cd NextSimpleStarter
 ```
 
-
-**2. Make it your own:**
-
+Make it your own:
 ```sh
 rm -rf .git && git init && yarn init
 ```
-
 > :information_source: This re-initializes the repo and sets up your project.
 
-
-**3. Install the dependencies:**
-
+Install the dependencies:
 ```sh
 yarn install
 ```
-or if you're using npm:
+or
 ```sh
 npm install
 ```
 
-> You're done installing! Now let's get started developing.
-
-
-
-## Development Workflow
-
-
-**4. Start a live-reload development server:**
-
+### Development Workflow
+Start a live-reload development server:
 ```sh
 yarn run dev
 ```
@@ -56,8 +42,7 @@ or
 npm run dev
 ```
 
-**5. Generate a production build:**
-
+Generate a production build:
 ```sh
 yarn run build
 ```
@@ -68,23 +53,21 @@ npm run build
 
 You can now deploy the contents of the `build` directory to production!
 
-## Deployment
+### Deployment
+<details>
+	<summary>now</summary>
+	Deploying a nextjs app is a lot easier with [now](zeit.co/now). Make sure you're logged in then run 
+	<pre> now </pre>
+	Simple right? :smile:
+</details>
 
-**now:**
+<details>
+	<summary>heroku</summary>
+	Just follow <a href="https://github.com/mars/heroku-nextjs">Mars's Guide</a> and you're good to go :clap:
+</details>
 
-Deploying a nextjs app is a lot easier with [now](zeit.co/now). Make sure you're logged in then run:
-
-```sh
-now
-```
-Simple right? :smile:
-
-**heroku:**
-Just follow [Mars's Guide](https://github.com/mars/heroku-nextjs) and you're good to go :clap:
-
-## Contribution
+### Contribution
 I'm open to contributions & suggestions in making this a lot better :hand:
 
-## License
-
+### License
 MIT

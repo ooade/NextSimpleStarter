@@ -21,6 +21,7 @@ module.exports = {
 			// Service Worker
 			config.plugins.push(
 				new SWPrecacheWebpackPlugin({
+					cacheId: 'next-ss',
 					filename: 'sw.js',
 					minify: true,
 					staticFileGlobsIgnorePatterns: [/\.next\//],

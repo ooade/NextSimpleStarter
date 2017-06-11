@@ -1,29 +1,18 @@
+/**
+ * Registers our Service Worker on the site
+ * Need more? check out:
+ * https://github.com/GoogleChrome/sw-precache/blob/master/demo/app/js/service-worker-registration.js
+ */
+
 if (
 	process.env.NODE_ENV === 'production' &&
 	typeof window !== 'undefined' &&
 	'serviceWorker' in navigator
 ) {
 	navigator.serviceWorker
-		.register('/sw.js')
+		.register('sw.js')
 		.then(function(reg) {
-			reg.onupdatefound = function() {
-				const installingWorker = reg.installing;
-
-				installingWorker.onstatechange = function() {
-					switch (installingWorker.state) {
-						case 'installed':
-							if (navigator.serviceWorker.controller) {
-								console.log('New or updated content is available.');
-							} else {
-								console.log('Content is now available offline!');
-							}
-							break;
-						case 'redundant':
-							console.log('The installing serviceWorker became redundant.');
-							break;
-					}
-				};
-			};
+			console.log('Service worker registered (0-0) ');
 		})
 		.catch(function(e) {
 			console.error('Error during service worker registration:', e);

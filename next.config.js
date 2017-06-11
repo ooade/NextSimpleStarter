@@ -27,7 +27,6 @@ module.exports = {
 					staticFileGlobs: [
 						'static/**/*' // Precache all static files by default
 					],
-					forceDelete: true,
 					runtimeCaching: [
 						// Example with different handlers
 						{

@@ -4,9 +4,7 @@ if (
 	'serviceWorker' in navigator
 ) {
 	navigator.serviceWorker
-		.register('/sw.js', {
-			scope: './'
-		})
+		.register('/sw.js')
 		.then(function(reg) {
 			reg.onupdatefound = function() {
 				const installingWorker = reg.installing;

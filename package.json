@@ -10,7 +10,7 @@
     "next": "^2.4.3",
     "next-redux-wrapper": "^1.1.2",
     "react": "15.6.1",
-    "react-dom": "15.5.4",
+    "react-dom": "15.6.1",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0"
   },

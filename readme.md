@@ -51,7 +51,7 @@ or
 npm run build
 ```
 ### Deployment
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/zpnk/hello-world)
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/ooade/NextSimpleStarter)
 
 <details>
 	<summary>heroku</summary>

@@ -50,16 +50,8 @@ or
 ```sh
 npm run build
 ```
-
-You can now deploy the contents of the `build` directory to production!
-
 ### Deployment
-<details>
-	<summary>now</summary>
-	Deploying a nextjs app is a lot easier with [now](zeit.co/now). Make sure you're logged in then run 
-	<pre> now </pre>
-	Simple right? :smile:
-</details>
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/zpnk/hello-world)
 
 <details>
 	<summary>heroku</summary>

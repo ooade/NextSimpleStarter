@@ -6,8 +6,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "express": "^4.14.0",
-    "next": "^2.4.3",
+    "next": "^2.4.4",
     "next-redux-wrapper": "^1.1.2",
     "react": "15.6.1",
     "react-dom": "15.6.1",

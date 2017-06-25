@@ -1,4 +1,4 @@
-const express = require('express');
+const { createServer } = require('http');
 const path = require('path');
 const next = require('next');
 
@@ -9,14 +9,13 @@ const handle = app.getRequestHandler();
 const PORT = process.env.PORT || 3000;
 
 app.prepare().then(_ => {
-	const server = express();
-
-	// serve service worker
-	server.get('/sw.js', (req, res) =>
-		res.sendFile(path.resolve('./.next/sw.js'))
-	);
-
-	server.get('*', (req, res) => handle(req, res));
+	const server = createServer((req, res) => {
+		if (req.url === '/sw.js') {
+			app.serveStatic(req, res, path.resolve('./.next/sw.js'));
+		} else {
+			handle(req, res);
+		}
+	});
 
 	server.listen(PORT, err => {
 		if (err) throw err;

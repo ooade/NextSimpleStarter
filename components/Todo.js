@@ -1,24 +1,24 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 
-import { addTodo, removeTodo } from '../actions/todo';
-import TodoItem from './TodoItem';
+import { addTodo, removeTodo } from '../actions/todo'
+import TodoItem from './TodoItem'
 
 class Todo extends React.Component {
 	state = {
 		text: ''
-	};
+	}
 
 	addTodos = e => {
-		e.preventDefault();
+		e.preventDefault()
 
-		this.props.addTodo(this.state.text);
-		this.setState({ text: '' });
-	};
+		this.props.addTodo(this.state.text)
+		this.setState({ text: '' })
+	}
 
 	removeTodo = todo => {
-		this.props.removeTodo(todo);
-	};
+		this.props.removeTodo(todo)
+	}
 
 	render() {
 		return (
@@ -73,10 +73,10 @@ class Todo extends React.Component {
 						}
 					`}</style>
 			</div>
-		);
+		)
 	}
 }
 
 export default connect(({ todos }) => ({ todos }), { addTodo, removeTodo })(
 	Todo
-);
+)

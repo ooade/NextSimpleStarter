@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default ({ todo, remove }) => {
 	return (
@@ -9,7 +9,8 @@ export default ({ todo, remove }) => {
 				style={{ fontSize: 12 }}
 			>
 				x
-			</button> {' '} {todo.text}
+			</button>{' '}
+			{todo.text}
 		</li>
-	);
-};
+	)
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Fork = ({ stars }) => (
 	<div>
@@ -20,6 +20,6 @@ const Fork = ({ stars }) => (
 			}
 		  `}</style>
 	</div>
-);
+)
 
-export default Fork;
+export default Fork

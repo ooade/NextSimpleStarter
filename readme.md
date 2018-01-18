@@ -35,7 +35,7 @@ npm install
 ### Development Workflow
 Start a live-reload development server:
 ```sh
-yarn run dev
+yarn dev
 ```
 or
 ```sh
@@ -44,7 +44,7 @@ npm run dev
 
 Generate a production build:
 ```sh
-yarn run build
+yarn build
 ```
 or
 ```sh

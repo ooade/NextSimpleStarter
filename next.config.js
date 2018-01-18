@@ -12,7 +12,7 @@ module.exports = {
 
 		config.entry = () =>
 			oldEntry().then(entry => {
-				entry['main.js'].push(path.resolve('./utils/offline'))
+				entry['main.js'] && entry['main.js'].push(path.resolve('./utils/offline'))
 				return entry
 			})
 

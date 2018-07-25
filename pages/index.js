@@ -1,11 +1,9 @@
 import 'isomorphic-fetch'
 import React from 'react'
-import withRedux from 'next-redux-wrapper'
+import { connect } from 'react-redux'
 
 import Fork from '../components/Fork'
 import Todo from '../components/Todo'
-
-import initStore from '../utils/store'
 
 class Index extends React.Component {
 	static async getInitialProps({ store }) {
@@ -31,4 +29,4 @@ class Index extends React.Component {
 	}
 }
 
-export default withRedux(initStore)(Index)
+export default connect()(Index)

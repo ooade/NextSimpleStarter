@@ -6,7 +6,9 @@ import withRedux from 'next-redux-wrapper'
 import initStore from '../utils/store'
 
 /* debug to log how the store is being used */
-export default withRedux(initStore, { debug: true })(
+export default withRedux(initStore, {
+	debug: typeof window !== 'undefined' && process.env.NODE_ENV !== 'production'
+})(
 	class MyApp extends App {
 		static async getInitialProps({ Component, ctx }) {
 			return {

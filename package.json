@@ -19,6 +19,6 @@
     "start": "NODE_ENV=production node server"
   },
   "devDependencies": {
-    "workbox-webpack-plugin": "^3.0.1"
+    "sw-precache-webpack-plugin": "^0.11.5"
   }
 }

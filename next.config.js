@@ -1,8 +1,8 @@
 const path = require('path')
-const WorkboxPlugin = require('workbox-webpack-plugin')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
 module.exports = {
-	webpack: (config, { buildId, dev }) => {
+	webpack: (config, { dev }) => {
 		/**
 		 * Install and Update our Service worker
 		 * on our main entry file :)
@@ -21,16 +21,18 @@ module.exports = {
 		if (!dev) {
 			// Service Worker
 			config.plugins.push(
-				new WorkboxPlugin.GenerateSW({
-					cacheId: buildId,
-					importWorkboxFrom: 'cdn',
-					globDirectory: path.resolve('static/img'),
-					globPatterns: ['**/*.{html,js,css}'],
-					swDest: path.resolve('static', 'sw.js'),
+				new SWPrecacheWebpackPlugin({
+					cacheId: 'next-ss',
+					filepath: './static/sw.js',
+					minify: true,
+					staticFileGlobsIgnorePatterns: [/\.next\//],
+					staticFileGlobs: [
+						'static/**/*' // Precache all static files by default
+					],
 					runtimeCaching: [
 						// Example with different handlers
 						{
-							handler: 'staleWhileRevalidate',
+							handler: 'fastest',
 							urlPattern: /[.](png|jpg|css)/
 						},
 						{

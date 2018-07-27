@@ -4,7 +4,20 @@ workbox.skipWaiting()
 workbox.clientsClaim()
 
 workbox.precaching.suppressWarnings()
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
+/**
+ * Ignore the non-important files added as a result of
+ * webpack's publicPath thingy, for now...
+ */
+// workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
+workbox.precaching.precacheAndRoute(
+	self.__precacheManifest.filter(
+		m =>
+			!m.url.startsWith('bundles/') &&
+			!m.url.startsWith('static/commons') &&
+			m.url !== 'build-manifest.json'
+	),
+	{}
+)
 
 workbox.routing.registerRoute(
 	/[.](png|jpg|css)/,
@@ -13,6 +26,14 @@ workbox.routing.registerRoute(
 		cacheableResponse: {
 			statuses: [0, 200]
 		}
+	}),
+	'GET'
+)
+
+workbox.routing.registerRoute(
+	/^https:\/\/code\.getmdl\.io.*/,
+	workbox.strategies.staleWhileRevalidate({
+		cacheName: 'lib-cache'
 	}),
 	'GET'
 )

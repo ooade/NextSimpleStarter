@@ -77,6 +77,7 @@ class Todo extends React.Component {
 	}
 }
 
-export default connect(({ todos }) => ({ todos }), { addTodo, removeTodo })(
-	Todo
-)
+export default connect(
+	({ todos }) => ({ todos }),
+	{ addTodo, removeTodo }
+)(Todo)

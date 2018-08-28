@@ -9,6 +9,12 @@ workbox.precaching.suppressWarnings()
  * webpack's publicPath thingy, for now...
  */
 // workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
+
+/**
+ * You can read about Cache Strategies here
+ * (https://developers.google.com/web/tools/workbox/modules/workbox-strategies)
+ */
+
 workbox.precaching.precacheAndRoute(
 	self.__precacheManifest.filter(
 		m =>
@@ -32,8 +38,17 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
 	/^https:\/\/code\.getmdl\.io.*/,
-	workbox.strategies.staleWhileRevalidate({
+	workbox.strategies.cacheFirst({
 		cacheName: 'lib-cache'
+	}),
+	'GET'
+)
+
+// Fetch the root route as fast as possible
+workbox.routing.registerRoute(
+	'/',
+	workbox.strategies.staleWhileRevalidate({
+		cacheName: 'root'
 	}),
 	'GET'
 )

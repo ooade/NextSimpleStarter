@@ -28,7 +28,7 @@ class Todo extends React.Component {
 						<input
 							type="text"
 							value={this.state.text}
-							onInput={e => this.setState({ text: e.target.value })}
+							onChange={e => this.setState({ text: e.target.value })}
 							className="mdl-textfield__input"
 							id="input"
 						/>

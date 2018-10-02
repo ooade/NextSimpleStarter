@@ -6,6 +6,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "next": "^7.0.0",
     "next-redux-wrapper": "^2.0.0",
     "react": "^16.5.2",

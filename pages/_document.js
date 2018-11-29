@@ -11,6 +11,10 @@ export default class MyDocument extends Document {
 						content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"
 					/>
 					<meta name="theme-color" content="#673ab7" />
+					<meta
+						http-equiv="Content-Security-Policy"
+						content="upgrade-insecure-requests"
+					/>
 					<link rel="manifest" href="static/manifest.json" />
 					<link rel="icon" href="static/img/favicon.ico" />
 					<link

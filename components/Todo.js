@@ -3,25 +3,18 @@ import { connect } from 'react-redux'
 
 import { addTodo, removeTodo } from '../actions/todo'
 import TodoItem from './TodoItem'
-import ErrorComp from './Error'
 
 class Todo extends React.Component {
 	state = {
-		text: '',
-		display: 'none'
+		text: ''
 	}
 
 	addTodos = e => {
 		e.preventDefault()
 
-		if(this.state.text === ''){
-			this.setState({ display: true })
-		}else{
+		if (this.state.text !== '') {
 			this.props.addTodo(this.state.text)
-			this.setState({ 
-				text: '',
-				display: 'none' 
-			})
+			this.setState({ text: '' })
 		}
 	}
 
@@ -30,67 +23,57 @@ class Todo extends React.Component {
 	}
 
 	render() {
-
 		return (
-			<div>
-				<div className="mdl-card mdl-shadow--2dp">
-					<form onSubmit={this.addTodos}>
-						<div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<input
-								type="text"
-								value={this.state.text}
-								onChange={e => this.setState({ text: e.target.value })}
-								className="mdl-textfield__input"
-								id="input"
-							/>
-							<label className="mdl-textfield__label" htmlFor="input">
-								What must be done?
-							</label>
-						</div>
-					</form>
+			<div className="mdl-card mdl-shadow--2dp">
+				<form onSubmit={this.addTodos}>
+					<div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input
+							type="text"
+							value={this.state.text}
+							onChange={e => this.setState({ text: e.target.value })}
+							className="mdl-textfield__input"
+							id="input"
+						/>
+						<label className="mdl-textfield__label" htmlFor="input">
+							What must be done?
+						</label>
+					</div>
+				</form>
 
-					<ul>
-						{this.props.todos.map((todo, i) => (
-							<TodoItem key={i} todo={todo} remove={this.removeTodo} />
-						))}
-					</ul>
-
-					<style>{`
-							form {
-								background: #fff;
-								padding: 10px;
-							}
-							ul {
-								min-height: 100px;
-								margin: 0;
-								padding: 0;
-								text-align: left;
-								list-style: none;
-							}
-							ul li {
-								padding: 10px;
-								background: #FFF;
-								border-bottom: 1px solid #EEE;
-							}
-							ul li:nth-child(2n) {
-								background: #EEF6FF;
-							}
-							ul li:last-child {
-								border-bottom: none;
-							}
-							.mdl-card {
-								margin: auto;
-								transition: all .3s;
-								transform: translateY(100px);
-							}
-							.error{
-								min-height: 2px;
-							}
-						`}</style>
-				</div>
-				<div style={{ marginTop: '30px', display: this.state.display }}>
-					<ErrorComp />
-				</div>			
+				<ul>
+					{this.props.todos.map((todo, i) => (
+						<TodoItem key={i} todo={todo} remove={this.removeTodo} />
+					))}
+				</ul>
+				<style>{`
+						form {
+							background: #fff;
+							padding: 10px;
+						}
+						ul {
+							min-height: 100px;
+							margin: 0;
+							padding: 0;
+							text-align: left;
+							list-style: none;
+						}
+						ul li {
+							padding: 10px;
+							background: #FFF;
+							border-bottom: 1px solid #EEE;
+						}
+						ul li:nth-child(2n) {
+							background: #EEF6FF;
+						}
+						ul li:last-child {
+							border-bottom: none;
+						}
+						.mdl-card {
+							margin: auto;
+							transition: all .3s;
+							transform: translateY(100px);
+						}
+					`}</style>
 			</div>
 		)
 	}

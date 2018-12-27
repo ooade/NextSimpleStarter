@@ -12,8 +12,10 @@ class Todo extends React.Component {
 	addTodos = e => {
 		e.preventDefault()
 
-		this.props.addTodo(this.state.text)
-		this.setState({ text: '' })
+		if (this.state.text !== '') {
+			this.props.addTodo(this.state.text)
+			this.setState({ text: '' })
+		}
 	}
 
 	removeTodo = todo => {

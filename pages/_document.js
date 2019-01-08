@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
 					/>
 					<meta name="theme-color" content="#673ab7" />
 					<meta
-						http-equiv="Content-Security-Policy"
+						httpEquiv="Content-Security-Policy"
 						content="upgrade-insecure-requests"
 					/>
 					<link rel="manifest" href="static/manifest.json" />

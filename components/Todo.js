@@ -1,51 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import { addTodo, removeTodo } from '../actions/todo'
 import TodoItem from './TodoItem'
 
-class Todo extends React.Component {
-	state = {
-		text: ''
-	}
+const Todo = ({ todos, addTodo, removeTodo }) => {
+	const [text, changeText] = useState('')
 
-	addTodos = e => {
+	const handleAddTodo = e => {
 		e.preventDefault()
 
-		if (this.state.text !== '') {
-			this.props.addTodo(this.state.text)
-			this.setState({ text: '' })
-		}
+		addTodo(text)
+		changeText('')
 	}
 
-	removeTodo = todo => {
-		this.props.removeTodo(todo)
+	const handleTextChange = e => {
+		changeText(e.target.value)
 	}
 
-	render() {
-		return (
-			<div className="mdl-card mdl-shadow--2dp">
-				<form onSubmit={this.addTodos}>
-					<div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input
-							type="text"
-							value={this.state.text}
-							onChange={e => this.setState({ text: e.target.value })}
-							className="mdl-textfield__input"
-							id="input"
-						/>
-						<label className="mdl-textfield__label" htmlFor="input">
-							What must be done?
-						</label>
-					</div>
-				</form>
+	return (
+		<div className="mdl-card mdl-shadow--2dp">
+			<form onSubmit={handleAddTodo}>
+				<div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<input
+						type="text"
+						value={text}
+						onChange={handleTextChange}
+						className="mdl-textfield__input"
+						id="input"
+					/>
+					<label className="mdl-textfield__label" htmlFor="input">
+						What must be done?
+					</label>
+				</div>
+			</form>
 
-				<ul>
-					{this.props.todos.map((todo, i) => (
-						<TodoItem key={i} todo={todo} remove={this.removeTodo} />
-					))}
-				</ul>
-				<style>{`
+			<ul>
+				{todos.map((todo, i) => (
+					<TodoItem key={i} todo={todo} remove={removeTodo} />
+				))}
+			</ul>
+			<style>{`
 						form {
 							background: #fff;
 							padding: 10px;
@@ -74,9 +69,8 @@ class Todo extends React.Component {
 							transform: translateY(100px);
 						}
 					`}</style>
-			</div>
-		)
-	}
+		</div>
+	)
 }
 
 export default connect(

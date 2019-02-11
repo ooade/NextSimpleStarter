@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default ({ todo, remove }) => {
+const TodoItem = ({ todo, remove }) => {
 	return (
 		<li style={{ listStyle: 'none' }}>
 			<button
 				className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect"
-				onClick={_ => remove(todo)}
+				onClick={() => remove(todo)}
 				style={{ fontSize: 12 }}
 			>
 				x
@@ -14,3 +14,5 @@ export default ({ todo, remove }) => {
 		</li>
 	)
 }
+
+export default TodoItem

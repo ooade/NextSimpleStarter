@@ -7,11 +7,11 @@
   "license": "MIT",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "next": "^8.0.0",
-    "next-redux-wrapper": "^2.0.0",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
-    "react-redux": "^6.0.0",
+    "next": "^8.0.4",
+    "next-redux-wrapper": "^3.0.0-alpha.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^6.0.1",
     "redux": "^3.7.2"
   },
   "scripts": {
@@ -20,6 +20,6 @@
     "start": "NODE_ENV=production node server"
   },
   "devDependencies": {
-    "workbox-webpack-plugin": "^4.0.0"
+    "workbox-webpack-plugin": "^4.2.0"
   }
 }

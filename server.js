@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000
 
 app.prepare().then(_ => {
 	const server = createServer((req, res) => {
-		if (req.url === '/sw.js' || req.url.startsWith('/precache-manifest')) {
+		if (req.url === '/service-worker.js') {
 			app.serveStatic(req, res, path.join(__dirname, '.next', req.url))
 		} else {
 			handle(req, res)

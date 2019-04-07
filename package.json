@@ -16,9 +16,10 @@
 		"redux": "^3.7.2"
 	},
 	"scripts": {
-		"dev": "node server",
+		"dev": "next",
 		"build": "rimraf .next && next build",
-		"start": "NODE_ENV=production node server"
+		"start": "NODE_ENV=production node server",
+		"now-build": "next build"
 	},
 	"devDependencies": {
 		"rimraf": "^2.6.3"

@@ -1,7 +1,7 @@
 {
 	"version": 2,
-	"name": "NextSimpleStarter",
-	"alias": ["next-ss"],
+	"name": "next-simple-starter",
+	"alias": "nextss.now.sh",
 	"routes": [
 		{
 			"src": "^/service-worker.js$",
@@ -12,5 +12,5 @@
 			}
 		}
 	],
-	"builds": [{ "src": "next.config.js", "use": "@now/next" }]
+	"builds": [{ "src": "package.json", "use": "@now/next" }]
 }

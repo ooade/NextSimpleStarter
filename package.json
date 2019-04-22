@@ -1,6 +1,6 @@
 {
 	"name": "next-simple-starter",
-	"version": "2.0.0-alpha.1",
+	"version": "2.0.0",
 	"repository": {
 		"url": "https://github.com/ooade/NextSimpleStarter"
 	},
@@ -17,11 +17,8 @@
 	},
 	"scripts": {
 		"dev": "next",
-		"build": "rimraf .next && next build",
-		"start": "NODE_ENV=production node server",
+		"build": "next build",
+		"start": "next start",
 		"now-build": "next build"
-	},
-	"devDependencies": {
-		"rimraf": "^2.6.3"
 	}
 }

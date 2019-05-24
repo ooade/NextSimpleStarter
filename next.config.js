@@ -7,7 +7,7 @@ module.exports = withOffline({
 		runtimeCaching: [
 			{
 				urlPattern: /[.](png|jpg|ico|css)/,
-				handler: 'cacheFirst',
+				handler: 'CacheFirst',
 				options: {
 					cacheName: 'assets-cache',
 					cacheableResponse: {
@@ -17,14 +17,14 @@ module.exports = withOffline({
 			},
 			{
 				urlPattern: /^https:\/\/code\.getmdl\.io.*/,
-				handler: 'cacheFirst',
+				handler: 'CacheFirst',
 				options: {
 					cacheName: 'lib-cache'
 				}
 			},
 			{
 				urlPattern: /^http.*/,
-				handler: 'networkFirst',
+				handler: 'NetworkFirst',
 				options: {
 					cacheName: 'http-cache'
 				}

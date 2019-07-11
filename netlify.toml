@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/service-worker.js"
+  to = "/static/service-worker.js"
+  status = 200

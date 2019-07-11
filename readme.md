@@ -9,9 +9,10 @@
 - [Installation](#installation)
 - [Development Workflow](#development-workflow)
 - [Deployment](#deployment)
+- [Deploy to Netlify](#deploy-to-netlify)
 
 ### Installation
-Clone repo: 
+Clone repo:
 ```sh
 git clone https://github.com/ooade/NextSimpleStarter.git
 cd NextSimpleStarter
@@ -52,11 +53,17 @@ npm run build
 ```
 ### Deployment
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/ooade/NextSimpleStarter)
-
 <details>
-	<summary>heroku</summary>
+	<summary>Heroku</summary>
 	Just follow <a href="https://github.com/mars/heroku-nextjs">Mars's Guide</a> and you're good to go :clap:
 </details>
+
+### Deploy to Netlify
+- On netlify, Click on new site from git.
+- Select Cloned Repository.
+- Choose VCS.
+- Add build command `npm run export`.
+- Add publish directory `out`.
 
 ### Contribution
 I'm open to contributions & suggestions in making this a lot better :hand:

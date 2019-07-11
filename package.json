@@ -19,6 +19,11 @@
 		"dev": "next",
 		"build": "next build",
 		"start": "next start",
+		"export": "NEXT_TARGET=server next build && NEXT_TARGET=server next export",
+		"start:static": "serve",
 		"now-build": "next build"
+	},
+	"devDependencies": {
+		"serve": "^11.1.0"
 	}
 }

@@ -1,0 +1,18 @@
+{
+    "public": "out",
+    "headers": [
+      {
+        "source": "service-worker.js",
+        "headers": [{
+          "key" : "Cache-Control",
+          "value" : "max-age=43200"
+        }]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/service-worker.js",
+        "destination": "/static/service-worker.js"
+      }
+    ]
+}

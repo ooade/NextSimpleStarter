@@ -19,6 +19,7 @@ class MyDocument extends Document {
 						rel="stylesheet"
 						href="https://code.getmdl.io/1.3.0/material.deep_purple-blue.min.css"
 					/>
+					<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 				</Head>
 				<body>
 					<Main />
@@ -79,3 +80,4 @@ MyDocument.getInitialProps = async ctx => {
 
 
 export default MyDocument
+

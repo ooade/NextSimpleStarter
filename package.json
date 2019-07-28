@@ -6,6 +6,9 @@
 		"url": "https://github.com/ooade/NextSimpleStarter"
 	},
 	"license": "MIT",
+	"eslintConfig": {
+		"extends": "react-app"
+	},
 	"dependencies": {
 		"@material-ui/core": "^4.2.1",
 		"@material-ui/icons": "^4.2.1",
@@ -15,15 +18,16 @@
 		"next-offline": "^4.0.0",
 		"next-redux-wrapper": "^3.0.0-alpha.2",
 		"react": "^16.8.6",
+		"react-axe": "^3.2.0",
 		"react-dom": "^16.8.6",
 		"react-redux": "^7.1.0",
 		"redux": "^3.7.2",
-		"reselect": "^4.0.0",
-		"typeface-roboto": "0.0.75"
+		"reselect": "^4.0.0"
 	},
 	"scripts": {
 		"dev": "next",
 		"start": "next start",
+		"lint": "eslint components",
 		"build": "next build",
 		"build:server": "NEXT_TARGET=server next build",
 		"export:server": "NEXT_TARGET=server next export",
@@ -32,6 +36,14 @@
 		"now-build": "next build"
 	},
 	"devDependencies": {
+		"babel-eslint": "^9.0.0",
+		"eslint": "^5.16.0",
+		"eslint-config-react-app": "^4.0.1",
+		"eslint-plugin-flowtype": "^2.50.3",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-react": "^7.14.3",
+		"eslint-plugin-react-hooks": "^1.5.0",
 		"serve": "^11.1.0"
 	}
 }

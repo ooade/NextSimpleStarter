@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { connect, useSelector } from 'react-redux'
+import React, { useEffect, useRef } from 'react'
+import { useSelector } from 'react-redux'
 import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 import { createSelector } from 'reselect'
@@ -15,8 +15,8 @@ const useStyles = makeStyles(theme => ({
 	}
 }))
 
-const purple = "#3f51b5";
-const red = "#f50057";
+const purple = '#3f51b5'
+const red = '#f50057'
 
 const selectNumOfDoneTodos = createSelector(
 	state => state.todos,
@@ -39,42 +39,37 @@ export const TotalTodosCounter = () => {
 }
 
 const Chart = ({ todos }) => {
-
-	const mounted = useRef();
-	//const [localTodos, setTodos] = useState([''])
-
+	const mounted = useRef()
 	const classes = useStyles()
-	// let updatedTodos = useSelector(state => state)
 
 	const calcData = newTodos => {
-		const totalDone = newTodos.filter( item => item.isDone ).length;
-		const totalTodos =  newTodos.length;
-		const totalNotDone = totalTodos - totalDone;
+		const totalDone = newTodos.filter(item => item.isDone).length
+		const totalTodos = newTodos.length
+		const totalNotDone = totalTodos - totalDone
 
-		const percentDone = Math.floor(totalDone / totalTodos * 100);
-		const percentNotDone = Math.floor(totalNotDone / totalTodos * 100);
-		
+		const percentDone = Math.floor((totalDone / totalTodos) * 100)
+		const percentNotDone = Math.floor((totalNotDone / totalTodos) * 100)
+
 		const data = [
 			{ label: 'done', value: percentDone, color: red },
 			{ label: 'todo', value: percentNotDone, color: purple }
 		]
-		return data;
+		return data
 	}
 
-	const getSentimentValues = (data) => {
+	const getSentimentValues = data => {
 		return data.map(function(node) {
 			return node.value
 		})
 	}
 
-	const getSentimentColor = (data) => {
+	const getSentimentColor = data => {
 		return data.map(function(node) {
 			return node.color
 		})
 	}
 
 	const drawRing = (chart, newTodos) => {
-
 		const ringData = [
 			{ label: 'done', value: 0, color: red },
 			{ label: 'todo', value: 100, color: purple }
@@ -84,29 +79,26 @@ const Chart = ({ todos }) => {
 	}
 
 	const updateRing = (ringData, chart, newTodos, isUpdate) => {
-
 		const sentimentValues = getSentimentValues(ringData)
 		const sentimentColors = getSentimentColor(ringData)
-
 
 		let getFill = i => {
 			return sentimentColors[i]
 		}
 
-		let newData;
-		let paths;
+		let newData
+		let paths
 
 		if (isUpdate) {
-			newData = chart.selectAll("path");
+			newData = chart.selectAll('path')
 			paths = newData
-					.merge(newData)
-						.attr('opacity', 1)
-						.attr('fill', function(d, i) {
-							return getFill(i)
-						})
-
+				.merge(newData)
+				.attr('opacity', 1)
+				.attr('fill', function(d, i) {
+					return getFill(i)
+				})
 		} else {
-			newData = chart.selectAll("path").data(sentimentValues);
+			newData = chart.selectAll('path').data(sentimentValues)
 			paths = chart
 				.append('g')
 				.attr('transform', 'translate (80,75)')
@@ -121,19 +113,17 @@ const Chart = ({ todos }) => {
 				})
 		}
 
-		const 
-			height = 180,
+		const height = 180,
 			outerRadius = height / 2 - 30,
-			cornerRadius = 5;
+			cornerRadius = 5
 
-		const pie = d3.pie();
+		const pie = d3.pie()
 
-		const arc = d3.arc()
-			.outerRadius(outerRadius);
-  
+		const arc = d3.arc().outerRadius(outerRadius)
+
 		const timer = d3.timer(function(elapsed) {
 			const duration = 2500
-			const t = 1 - Math.abs((elapsed % 2500) / 2500 - 0.5) * 2
+			const t = 1 - Math.abs((elapsed % duration) / duration - 0.5) * 2
 
 			let sentimentValues = ringData.map(function(node) {
 				return node.value
@@ -150,41 +140,38 @@ const Chart = ({ todos }) => {
 	}
 
 	const newTodos = useSelector(updatedTodos)
-	
-	// wait until the component has mounted before drawing the svg 
 
+	// wait until the component has mounted before drawing the svg
 	const onMount = () => {
 		const chart = d3.select('#chart')
 
 		if (!mounted.current) {
 			mounted.current = true
 			drawRing(chart, newTodos)
-		} 
+		}
 	}
 
 	useEffect(onMount, [])
 
 	// listen to the redux store updates
-
 	const onStoreDidUpdate = () => {
-
 		if (mounted.current) {
-			// do componentDidUpate 
+			// do componentDidUpate
 			const chart = d3.select('#chart')
 			const ringData = calcData(newTodos)
 			updateRing(ringData, chart, newTodos, true)
-		  }
+		}
 	}
 
-	onStoreDidUpdate();
+	onStoreDidUpdate()
 
 	return (
 		<>
 			<Paper className={classes.chart}>
 				<div className="total">
-					<span className="stat">Total</span> 
-					<TotalTodosCounter /> 
-					<span className="stat">Done</span> 
+					<span className="stat">Total</span>
+					<TotalTodosCounter />
+					<span className="stat">Done</span>
 					<DoneTodosCounter />
 				</div>
 				<svg id="chart" width="100%" height="100%" />
@@ -224,4 +211,4 @@ const Chart = ({ todos }) => {
 }
 
 export default Chart
-//export default connect(({ todos }) => ({ todos }))(Chart)
+

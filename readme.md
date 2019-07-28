@@ -51,7 +51,20 @@ or
 ```sh
 npm run build
 ```
-### Deployment
+
+### Deploy to Now
+
+```sh
+now dev
+```
+
+For production, update alias in the now.json ie `"alias": "nextss-yourname.now.sh",`
+
+```sh
+now
+```
+
+### Deploy to Heroku
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/ooade/NextSimpleStarter)
 <details>
 	<summary>Heroku</summary>

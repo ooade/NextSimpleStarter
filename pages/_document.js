@@ -4,13 +4,14 @@ import Document, { Head, Main, NextScript } from 'next/document'
 export default class MyDocument extends Document {
 	render() {
 		return (
-			<html style={{ background: '#EEE', color: '#444' }}>
+			<html style={{ background: '#EEE', color: '#444' }} lang="en-US">
 				<Head>
 					<meta
 						name="viewport"
-						content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"
+						content="width=device-width,initial-scale=1,minimal-ui"
 					/>
 					<meta name="theme-color" content="#673ab7" />
+					<meta name="Description" content="an example of NextJS app with 100% accessible lighthouse score"></meta>
 					<link rel="manifest" href="static/manifest.json" />
 					<link rel="icon" href="static/img/favicon.ico" />
 					<link

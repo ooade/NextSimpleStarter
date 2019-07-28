@@ -7,6 +7,9 @@
 	},
 	"license": "MIT",
 	"dependencies": {
+		"@material-ui/core": "^4.2.1",
+		"@material-ui/icons": "^4.2.1",
+		"d3": "^5.9.7",
 		"isomorphic-fetch": "^2.2.1",
 		"next": "^9.0.0",
 		"next-offline": "^4.0.0",
@@ -14,7 +17,9 @@
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
 		"react-redux": "^7.1.0",
-		"redux": "^3.7.2"
+		"redux": "^3.7.2",
+		"reselect": "^4.0.0",
+		"typeface-roboto": "0.0.75"
 	},
 	"scripts": {
 		"dev": "next",

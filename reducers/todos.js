@@ -1,8 +1,33 @@
-import { ADD_TODO, REMOVE_TODO } from '../actions'
+import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from '../actions'
+
+const markDone = (todos, todo) => {
+	const updatedTodos = todos.map(
+		oldTodo => {
+			if (oldTodo === todo) {
+				return {...oldTodo, isDone: true}
+			} else {
+				return oldTodo;
+			}
+		}
+	)
+	return updatedTodos;
+}
+
+const update = (todos, todo) => {
+	const updatedTodos = todos.map(
+		oldTodo => {
+			if (oldTodo.id === todo.id) {
+				return todo;
+			} else {
+				return oldTodo;
+			}
+		}
+	)
+	return updatedTodos;
+}
 
 export default function(state = [], action) {
 	const { type, text, todo } = action
-
 	switch (type) {
 		case ADD_TODO:
 			return [
@@ -11,11 +36,14 @@ export default function(state = [], action) {
 					id: Math.random()
 						.toString(36)
 						.substring(2),
-					text
+					text,
+					isDone: false
 				}
 			]
+		case UPDATE_TODO:
+			return update(state, todo)	
 		case REMOVE_TODO:
-			return state.filter(i => i !== todo)
+			return markDone(state, todo)
 		default:
 			return state
 	}

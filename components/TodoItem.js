@@ -1,15 +1,28 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
-const TodoItem = ({ todo, remove }) => {
+const useStyles = makeStyles(theme => ({
+	button: {
+	  margin: theme.spacing(1),
+	},
+	input: {
+	  display: 'none',
+	},
+  }));
+
+const TodoItem = ({ todo, remove, update }) => {
+	const classes = useStyles();
+
 	return (
 		<li style={{ listStyle: 'none' }}>
-			<button
-				className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect"
-				onClick={() => remove(todo)}
-				style={{ fontSize: 12 }}
-			>
-				x
-			</button>{' '}
+			<Button 
+				variant="contained"
+				onClick={() => update(todo)}
+				color={todo.isDone ? "secondary" : "primary"}
+				className={classes.button}>
+				{todo.isDone ? "Completed" : "Check off"}
+      		</Button>
 			{todo.text}
 		</li>
 	)

@@ -15,8 +15,9 @@ export function removeTodo(todo) {
 }
 
 export function updateTodo(todo) {
+	const updatedTodo = {...todo, isDone: !todo.isDone}
 	return {
 		type: UPDATE_TODO,
-		todo
+		todo: updatedTodo
 	}
 }

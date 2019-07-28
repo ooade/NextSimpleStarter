@@ -11,7 +11,7 @@ const Index = ({ stars }) => (
 	<div>
 		<Fork stars={stars} />
 		<div className="Index">
-			<h1><span style={{color: "rgb(63, 81, 181)"}}>NextJS</span> Learn how to build a PWA</h1>
+			<h1><span className="Index__hilite">NextJS</span> Learn how to build a PWA</h1>
 			<h2>Achieve a Perfect Lighthouse Score!</h2>
 			<p className="Index__description">In this example app, you will learn how to use the latest version of NextJS 
 				and leverage <a href="https://web.dev/accessibility-auditing-react" target="_blank" rel="noopener noreferrer">axe</a> to make it 100% accessible.</p>
@@ -32,6 +32,10 @@ const Index = ({ stars }) => (
 					padding-top: 20px;
 					padding-left: 20px;
 					margin-bottom: 10px;
+				}
+
+				.Index__hilite {
+					color: rgb(63, 81, 181);
 				}
 
 				h1 {

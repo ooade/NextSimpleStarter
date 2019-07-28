@@ -10,6 +10,8 @@ const useStyles = makeStyles(theme => ({
 	container: {
 	  display: 'flex',
 	  flexWrap: 'wrap',
+	  borderBottom: "1px dashed #3f51b5",
+	  justifyContent: "center"
 	},
 	textField: {
 	  marginLeft: theme.spacing(1),
@@ -25,8 +27,9 @@ const useStyles = makeStyles(theme => ({
 	paper: {
 		margin: 0,
 		marginBottom: 20,
-		width: 270,
+		width: 360,
 		padding: 0,
+		minHeight: 220
 	}
   }));
 
@@ -47,11 +50,11 @@ const Todo = ({ todos, addTodo, removeTodo, updateTodo }) => {
 
 	return (
 		<>
-			<Paper className={classes.paper} style={{width: 270, minHeight: 220}}>
+			<Paper className={classes.paper}>
 				<form className={classes.container} onSubmit={handleAddTodo}>
 					<TextField
 						id="standard-name"
-						label="Enter your To Do"
+						label="What must be done?"
 						className={classes.textField}
 						value={text}
 						onChange={handleTextChange}

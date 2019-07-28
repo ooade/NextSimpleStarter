@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
 		padding: 0,
 		margin: 0,
 		marginLeft: 20,
-		width: 270,
+		width: 160,
 		height: 220
 	}
 }))
@@ -88,25 +88,28 @@ const Chart = ({ todos }) => {
 		const sentimentValues = getSentimentValues(ringData)
 		const sentimentColors = getSentimentColor(ringData)
 
-		const newData = chart.selectAll("path").data(sentimentValues);
 
 		let getFill = i => {
 			return sentimentColors[i]
 		}
 
+		let newData;
 		let paths;
 
 		if (isUpdate) {
-			paths
-				.merge(newData)
-				.attr('opacity', 1)
-				.attr('fill', function(d, i) {
-					return getFill(i)
-				})
+			newData = chart.selectAll("path");
+			paths = newData
+					.merge(newData)
+						.attr('opacity', 1)
+						.attr('fill', function(d, i) {
+							return getFill(i)
+						})
+
 		} else {
+			newData = chart.selectAll("path").data(sentimentValues);
 			paths = chart
 				.append('g')
-				.attr('transform', 'translate (130,75)')
+				.attr('transform', 'translate (80,75)')
 				.attr('class', 'path--round')
 				.selectAll('path')
 				.data(sentimentValues)
@@ -118,6 +121,16 @@ const Chart = ({ todos }) => {
 				})
 		}
 
+		const 
+			height = 180,
+			outerRadius = height / 2 - 30,
+			cornerRadius = 5;
+
+		const pie = d3.pie();
+
+		const arc = d3.arc()
+			.outerRadius(outerRadius);
+  
 		const timer = d3.timer(function(elapsed) {
 			const duration = 2500
 			const t = 1 - Math.abs((elapsed % 2500) / 2500 - 0.5) * 2
@@ -169,7 +182,10 @@ const Chart = ({ todos }) => {
 		<>
 			<Paper className={classes.chart}>
 				<div className="total">
-					<span className="stat">Total</span> <TotalTodosCounter /> <span className="stat">Done</span> <DoneTodosCounter />
+					<span className="stat">Total</span> 
+					<TotalTodosCounter /> 
+					<span className="stat">Done</span> 
+					<DoneTodosCounter />
 				</div>
 				<svg id="chart" width="100%" height="100%" />
 			</Paper>
@@ -178,7 +194,6 @@ const Chart = ({ todos }) => {
 						display: flex;
 						flex-direction: row;
 						justify-content: center;
-						margin-botton: 10px;
 					}
 
 					.stat {
@@ -191,6 +206,7 @@ const Chart = ({ todos }) => {
 						margin: 20px 0px;
 						color:rgb(63, 81, 181);
 						font-size: 18px;
+						margin-right: 10px;
 					}
 
 					.paths--straight {

@@ -1,18 +1,5 @@
 import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from '../actions'
 
-const markDone = (todos, todo) => {
-	const updatedTodos = todos.map(
-		oldTodo => {
-			if (oldTodo === todo) {
-				return {...oldTodo, isDone: true}
-			} else {
-				return oldTodo;
-			}
-		}
-	)
-	return updatedTodos;
-}
-
 const update = (todos, todo) => {
 	const updatedTodos = todos.map(
 		oldTodo => {
@@ -43,7 +30,7 @@ export default function(state = [], action) {
 		case UPDATE_TODO:
 			return update(state, todo)	
 		case REMOVE_TODO:
-			return markDone(state, todo)
+			return state.filter(i => i !== todo)
 		default:
 			return state
 	}

@@ -25,6 +25,14 @@ const useStyles = makeStyles(theme => ({
 const TodoItem = ({ todo, remove, update }) => {
 	const classes = useStyles();
 
+	const renderText = text => {
+		if ( todo.isDone ) {
+			return (<span style={{ textDecoration: "line-through"}}>{text}</span>)
+		}
+
+		return text
+	}
+
 	return (
 		<li className={classes.li}>
 			<div className={classes.todo}>
@@ -35,7 +43,7 @@ const TodoItem = ({ todo, remove, update }) => {
 					className={classes.button}>
 					X
 				</Button>
-				{todo.text}
+				{renderText(todo.text)}
 				<Button 
 					variant="contained"
 					onClick={() => update(todo)}

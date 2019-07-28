@@ -1,7 +1,7 @@
 {
 	"version": 2,
 	"name": "next-simple-starter",
-	"alias": "nextss-headwinds.now.sh",
+	"alias": "nextss-yourname.now.sh",
 	"routes": [
 		{
 			"src": "^/service-worker.js$",

@@ -4,8 +4,11 @@
 <h3 align="center">Simple NextJS PWA boilerplate.</h3></p>
 </p>
 <p align="center">
+<a href="https://nextss-headwinds.now.sh/" target="_blank" rel="noopener noreferrer">
 <img src="nextjs-pwa.png" alt="screenshot"/>
+</a>
 </p>
+[demo](https://nextss-headwinds.now.sh/)
 
 ## Contents
 
@@ -66,8 +69,6 @@ For production, update alias in the now.json ie `"alias": "nextss-yourname.now.s
 ```sh
 now
 ```
-
-[demo](https://nextss-headwinds.now.sh/)
 
 ### Deploy to Heroku
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/ooade/NextSimpleStarter)

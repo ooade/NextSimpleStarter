@@ -2,9 +2,8 @@
 <img src="logo.png" alt="logo"/>
 <p align="center"><a href="https://travis-ci.org/ooade/NextSimpleStarter"><img src="https://travis-ci.org/ooade/NextSimpleStarter.svg?branch=master" alt="travis-ci"/></a> <a href="https://codeclimate.com/github/ooade/NextSimpleStarter/badges"><img src="https://codeclimate.com/github/ooade/NextSimpleStarter/badges/gpa.svg" alt="codeclimate-gpa-badge"/></a> <a href="https://codeclimate.com/github/ooade/NextSimpleStarter"><img src="https://codeclimate.com/github/ooade/NextSimpleStarter/badges/issue_count.svg" alt="codeclimate-issues-badge"/></a><br/>
 <h3 align="center">Simple NextJS PWA boilerplate.</h3></p>
-</p>
-
 <img src="nextjs-pwa.png" alt="screenshot"/>
+</p>
 
 ## Contents
 
@@ -66,7 +65,7 @@ For production, update alias in the now.json ie `"alias": "nextss-yourname.now.s
 now
 ```
 
-[https://nextss-headwinds.now.sh/](https://nextss-headwinds.now.sh/)
+[demo](https://nextss-headwinds.now.sh/)
 
 ### Deploy to Heroku
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/ooade/NextSimpleStarter)

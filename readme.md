@@ -8,6 +8,7 @@
 <img src="nextjs-pwa.png" alt="screenshot"/>
 </a>
 </p>
+
 [demo](https://nextss-headwinds.now.sh/)
 
 ## Contents

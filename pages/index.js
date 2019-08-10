@@ -19,7 +19,7 @@ const Index = ({ stars }) => (
 							and leverage <a href="https://web.dev/accessibility-auditing-react" target="_blank" rel="noopener noreferrer">axe</a> to make it 100% accessible.</p>
 						<div className={matches ? 'Index__desktop__content' : 'Index__mobile__content'}>
 							<Todo />
-							<Chart />
+							<Chart matches={matches} />
 						</div>	
 					</div>
 					{!matches && <Fork stars={stars} />}

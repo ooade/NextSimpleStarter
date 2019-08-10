@@ -48,7 +48,7 @@ export const TotalTodosCounter = () => {
 	return <div className="Chart__num">{todos.length}</div>
 }
 
-const Chart = ({ todos }) => {
+const Chart = ({ todos, matches }) => {
 	const mounted = useRef()
 	const classes = useStyles()
 
@@ -102,14 +102,18 @@ const Chart = ({ todos }) => {
 		const height = 180,
 		outerRadius = height / 2 - 30,
 		cornerRadius = 5
+		
+		const responsive = matches ? -70 : 80;
+		const centerWidth = 240 / 2 - ((outerRadius - responsive) / 2);
 
-		const centerWidth = 240 / 2 - ((outerRadius - 80) / 2);
+		console.log("TCL: updateRing -> centerWidth", centerWidth)
 
 		if (isUpdate) {
 			newData = chart.selectAll('path')
 			paths = newData
 				.merge(newData)
 				.attr('opacity', 1)
+				.attr('transform', `translate (${centerWidth},-10)`)
 				.attr('fill', function(d, i) {
 					return getFill(i)
 				})

@@ -4,14 +4,24 @@ import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 import { createSelector } from 'reselect'
 import * as d3 from 'd3'
+import Media from 'react-media'
+
 
 const useStyles = makeStyles(theme => ({
-	chart: {
-		padding: 0,
-		margin: 0,
-		marginLeft: 20,
-		width: 160,
-		height: 220
+	paper: {
+		desktop: {
+			padding: 0,
+			margin: 0,
+			marginLeft: 20,
+			width: 300,
+			height: 220
+		},
+		mobile: {
+			padding: 0,
+			margin: 10,
+			width: 300,
+			height: 220
+		}		
 	}
 }))
 
@@ -30,12 +40,12 @@ const updatedTodos = createSelector(
 
 export const DoneTodosCounter = () => {
 	const NumOfDoneTodos = useSelector(selectNumOfDoneTodos)
-	return <div className="num">{NumOfDoneTodos}</div>
+	return <div className="Chart__num">{NumOfDoneTodos}</div>
 }
 
 export const TotalTodosCounter = () => {
 	const todos = useSelector(updatedTodos)
-	return <div className="num">{todos.length}</div>
+	return <div className="Chart__num">{todos.length}</div>
 }
 
 const Chart = ({ todos }) => {
@@ -89,6 +99,12 @@ const Chart = ({ todos }) => {
 		let newData
 		let paths
 
+		const height = 180,
+		outerRadius = height / 2 - 30,
+		cornerRadius = 5
+
+		const centerWidth = 240 / 2 - ((outerRadius - 50) / 2);
+
 		if (isUpdate) {
 			newData = chart.selectAll('path')
 			paths = newData
@@ -101,7 +117,7 @@ const Chart = ({ todos }) => {
 			newData = chart.selectAll('path').data(sentimentValues)
 			paths = chart
 				.append('g')
-				.attr('transform', 'translate (80,75)')
+				.attr('transform', `translate (${centerWidth},75)`)
 				.attr('class', 'path--round')
 				.selectAll('path')
 				.data(sentimentValues)
@@ -113,9 +129,7 @@ const Chart = ({ todos }) => {
 				})
 		}
 
-		const height = 180,
-			outerRadius = height / 2 - 30,
-			cornerRadius = 5
+	
 
 		const pie = d3.pie()
 
@@ -166,47 +180,66 @@ const Chart = ({ todos }) => {
 	onStoreDidUpdate()
 
 	return (
-		<>
-			<Paper className={classes.chart}>
-				<div className="total">
-					<span className="stat">Total</span>
-					<TotalTodosCounter />
-					<span className="stat">Done</span>
-					<DoneTodosCounter />
+		<Media query="(min-width: 1025px)">
+			{matches => (
+			 <div className={`Chart ${matches ? 'Chart__desktop' : 'Chart__mobile'}`}>
+				<Paper className={matches ? classes.paper.desktop : classes.paper.mobile}>
+					<div className="Chart__total">
+						<span className="Chart__stat">Total</span>
+						<TotalTodosCounter />
+						<span className="Chart__stat">Done</span>
+						<DoneTodosCounter />
+					</div>
+					<svg id="chart" width="100%" height="100%" />
+				</Paper>
+				<style>{`
+
+						.Chart {
+
+						}
+
+						.Chart__desktop {
+							width: 220px;
+							height: 212px;
+						}
+
+						.Chart__mobile {
+							width: 95vw;
+							height: 212px;
+						}
+
+						.Chart__total {
+							display: flex;
+							flex-direction: row;
+							justify-content: center;
+						}
+
+						.Chart__stat {
+							margin: 20px 10px;
+							color: #222;
+							font-size: 18px;
+						}
+
+						.Chart__num {
+							margin: 20px 0px;
+							color:rgb(63, 81, 181);
+							font-size: 18px;
+							margin-right: 10px;
+						}
+
+						.paths--straight {
+							fill: none;
+							stroke: transparent;
+						}
+						
+						.paths--round {
+							fill: #ccc;
+							opacity: 0.5;
+						}
+					`}</style>
 				</div>
-				<svg id="chart" width="100%" height="100%" />
-			</Paper>
-			<style>{`
-					.total {
-						display: flex;
-						flex-direction: row;
-						justify-content: center;
-					}
-
-					.stat {
-						margin: 20px 10px;
-						color: #222;
-						font-size: 18px;
-					}
-
-					.num {
-						margin: 20px 0px;
-						color:rgb(63, 81, 181);
-						font-size: 18px;
-						margin-right: 10px;
-					}
-
-					.paths--straight {
-						fill: none;
-						stroke: transparent;
-					}
-					
-					.paths--round {
-						fill: #ccc;
-						opacity: 0.5;
-					}
-				`}</style>
-		</>
+			)}
+		</Media> 
 	)
 }
 

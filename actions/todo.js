@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from './'
+import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from '../constants/'
 
 export function addTodo(text) {
 	return {

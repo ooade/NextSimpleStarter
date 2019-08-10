@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from '../actions'
+import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from '../constants/'
 
 const update = (todos, todo) => {
 	const updatedTodos = todos.map(

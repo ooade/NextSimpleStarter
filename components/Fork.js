@@ -1,37 +1,44 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import StarIcon from '@material-ui/icons/Star';
-import Badge from '@material-ui/core/Badge';
-import Media from './Media'
+import { makeStyles } from '@material-ui/core/styles'
+import StarIcon from '@material-ui/icons/Star'
+import Badge from '@material-ui/core/Badge'
 
 const useStyles = makeStyles(theme => ({
 	button: {
-	  margin: theme.spacing(1),
+		margin: theme.spacing(1)
 	},
 	input: {
-	  display: 'none',
+		display: 'none'
 	},
 	icon: {
-	  margin: theme.spacing(1),
-	  fontSize: 24,
-	},
-  }));
- 
-const Fork = ({ stars }) => {
-	const classes = useStyles();
+		margin: theme.spacing(1),
+		fontSize: 24
+	}
+}))
+
+const Fork = ({ stars, matches }) => {
+	const classes = useStyles()
 	return (
-		<Media query="(min-width: 1025px)">
-			{({ matches }) => (
-				<div>
-					<div className={`Fork  ${matches ? 'Fork__desktop' : 'Fork__mobile'}`}>
-						<a className="Fork__badge" href="https://github.com/ooade/NextSimpleStarter" target="_blank" rel="noopener noreferrer">
-							Fork me
-							<Badge className={classes.margin} badgeContent={stars || 0} max={9999} color="primary">
-							<StarIcon className={classes.icon} color="primary" />
-						</Badge>
-						</a>
-					</div>
-					<style>{`
+		<div>
+			<div className={`Fork  ${matches ? 'Fork__desktop' : 'Fork__mobile'}`}>
+				<a
+					className="Fork__badge"
+					href="https://github.com/ooade/NextSimpleStarter"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Fork me
+					<Badge
+						className={classes.margin}
+						badgeContent={stars || 0}
+						max={9999}
+						color="primary"
+					>
+						<StarIcon className={classes.icon} color="primary" />
+					</Badge>
+				</a>
+			</div>
+			<style>{`
 						
 						.Fork {
 							margin-top: 20px;
@@ -61,9 +68,7 @@ const Fork = ({ stars }) => {
 						}
 
 					`}</style>
-				</div>
-			)}
-		</Media>
+		</div>
 	)
 }
 

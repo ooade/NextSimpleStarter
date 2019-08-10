@@ -1,29 +1,28 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import Paper from '@material-ui/core/Paper'
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField'
+import { makeStyles } from '@material-ui/core/styles'
 import { addTodo, removeTodo, updateTodo } from '../actions/todo'
 import TodoItem from './TodoItem'
-import Media from './Media'
 
 const useStyles = makeStyles(theme => ({
 	container: {
-	  display: 'flex',
-	  flexWrap: 'wrap',
-	  borderBottom: "1px dashed #3f51b5",
-	  justifyContent: "center"
+		display: 'flex',
+		flexWrap: 'wrap',
+		borderBottom: '1px dashed #3f51b5',
+		justifyContent: 'center'
 	},
 	textField: {
-	  marginLeft: theme.spacing(1),
-	  marginRight: theme.spacing(1),
-	  width: 200,
+		marginLeft: theme.spacing(1),
+		marginRight: theme.spacing(1),
+		width: 200
 	},
 	dense: {
-	  marginTop: 19,
+		marginTop: 19
 	},
 	menu: {
-	  width: 200,
+		width: 200
 	},
 	paper: {
 		desktop: {
@@ -41,10 +40,10 @@ const useStyles = makeStyles(theme => ({
 			minHeight: 220
 		}
 	}
-  }));
+}))
 
-const Todo = ({ todos, addTodo, removeTodo, updateTodo }) => {
-	const classes = useStyles();
+const Todo = ({ todos, addTodo, removeTodo, updateTodo, matches }) => {
+	const classes = useStyles()
 	const [text, changeText] = useState('')
 
 	const handleAddTodo = e => {
@@ -59,9 +58,7 @@ const Todo = ({ todos, addTodo, removeTodo, updateTodo }) => {
 	}
 
 	return (
-		<Media query="(min-width: 1025px)">
-			{({ matches }) => (
-			<div className={`Todo ${matches ? 'Todo__desktop' : 'Todo__mobile'}`}>
+		<div className={`Todo ${matches ? 'Todo__desktop' : 'Todo__mobile'}`}>
 			<Paper className={matches ? classes.paper.desktop : classes.paper.mobile}>
 				<form className={classes.container} onSubmit={handleAddTodo}>
 					<TextField
@@ -73,14 +70,23 @@ const Todo = ({ todos, addTodo, removeTodo, updateTodo }) => {
 						margin="normal"
 					/>
 				</form>
-				<ul className={`Todo__list ${matches ? 'Todo__list__desktop' : 'Todo__list__mobile'}`}>
+				<ul
+					className={`Todo__list ${
+						matches ? 'Todo__list__desktop' : 'Todo__list__mobile'
+					}`}
+				>
 					{todos.map((todo, i) => (
-						<TodoItem key={i} todo={todo} remove={removeTodo} update={updateTodo} />
+						<TodoItem
+							key={i}
+							todo={todo}
+							remove={removeTodo}
+							update={updateTodo}
+						/>
 					))}
 				</ul>
-				
 			</Paper>
-			<style>{`
+			<style>
+				{`
 					.Todo {
 						margin-bottom: 20px;
 					}
@@ -126,10 +132,8 @@ const Todo = ({ todos, addTodo, removeTodo, updateTodo }) => {
 						transform: translateY(20px);
 					}
 					`}
-				</style>
-			</div>
-			)}
-		</Media>
+			</style>
+		</div>
 	)
 }
 

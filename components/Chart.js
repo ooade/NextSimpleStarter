@@ -4,8 +4,6 @@ import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 import { createSelector } from 'reselect'
 import * as d3 from 'd3'
-import Media from './Media'
-
 
 const useStyles = makeStyles(theme => ({
 	paper: {
@@ -21,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 			margin: 10,
 			width: 300,
 			height: 220
-		}		
+		}
 	}
 }))
 
@@ -100,13 +98,13 @@ const Chart = ({ todos, matches }) => {
 		let paths
 
 		const height = 180,
-		outerRadius = height / 2 - 30,
-		cornerRadius = 5
-		
-		const responsive = matches ? -70 : 80;
-		const centerWidth = 240 / 2 - ((outerRadius - responsive) / 2);
+			outerRadius = height / 2 - 30,
+			cornerRadius = 5
 
-		console.log("TCL: updateRing -> centerWidth", centerWidth)
+		const responsive = matches ? -70 : 80
+		const centerWidth = 240 / 2 - (outerRadius - responsive) / 2
+
+		console.log('TCL: updateRing -> centerWidth', centerWidth)
 
 		if (isUpdate) {
 			newData = chart.selectAll('path')
@@ -132,8 +130,6 @@ const Chart = ({ todos, matches }) => {
 					return getFill(i)
 				})
 		}
-
-	
 
 		const pie = d3.pie()
 
@@ -184,20 +180,17 @@ const Chart = ({ todos, matches }) => {
 	onStoreDidUpdate()
 
 	return (
-		<Media query="(min-width: 1025px)">
-			{({ matches }) => (
-			 <div className={`Chart ${matches ? 'Chart__desktop' : 'Chart__mobile'}`}>
-				<Paper className={matches ? classes.paper.desktop : classes.paper.mobile}>
-					<div className="Chart__total">
-						<span className="Chart__stat">Total</span>
-						<TotalTodosCounter />
-						<span className="Chart__stat">Done</span>
-						<DoneTodosCounter />
-					</div>
-					<svg id="chart" width="100%" height="100%" />
-				</Paper>
-				<style>{`
-
+		<div className={`Chart ${matches ? 'Chart__desktop' : 'Chart__mobile'}`}>
+			<Paper className={matches ? classes.paper.desktop : classes.paper.mobile}>
+				<div className="Chart__total">
+					<span className="Chart__stat">Total</span>
+					<TotalTodosCounter />
+					<span className="Chart__stat">Done</span>
+					<DoneTodosCounter />
+				</div>
+				<svg id="chart" width="100%" height="100%" />
+			</Paper>
+			<style>{`
 						.Chart {
 
 						}
@@ -241,11 +234,8 @@ const Chart = ({ todos, matches }) => {
 							opacity: 0.5;
 						}
 					`}</style>
-				</div>
-			)}
-		</Media> 
+		</div>
 	)
 }
 
 export default Chart
-

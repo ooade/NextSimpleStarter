@@ -2,7 +2,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import StarIcon from '@material-ui/icons/Star';
 import Badge from '@material-ui/core/Badge';
-import Media from 'react-media'
+import Media from './Media'
 
 const useStyles = makeStyles(theme => ({
 	button: {
@@ -21,7 +21,7 @@ const Fork = ({ stars }) => {
 	const classes = useStyles();
 	return (
 		<Media query="(min-width: 1025px)">
-			{matches => (
+			{({ matches }) => (
 				<div>
 					<div className={`Fork  ${matches ? 'Fork__desktop' : 'Fork__mobile'}`}>
 						<a className="Fork__badge" href="https://github.com/ooade/NextSimpleStarter" target="_blank" rel="noopener noreferrer">

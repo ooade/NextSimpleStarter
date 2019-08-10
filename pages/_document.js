@@ -7,10 +7,7 @@ class MyDocument extends Document {
 		return (
 			<html style={{ background: '#EEE', color: '#444' }} lang="en-US">
 				<Head>
-					<meta
-						name="viewport"
-						content="width=device-width,initial-scale=1,minimal-ui"
-					/>
+					<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 					<meta name="theme-color" content="#673ab7" />
 					<meta name="Description" content="an example of NextJS app with 100% accessible lighthouse score"></meta>
 					<link rel="manifest" href="static/manifest.json" />

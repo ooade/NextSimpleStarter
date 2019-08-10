@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 import Fork from '../components/Fork'
 import Todo from '../components/Todo'
 import Chart from '../components/Chart'
-import Media from 'react-media'
+import Media from '../components/Media'
 
 // Port in to using useState hooks, if you need state
 const Index = ({ stars }) => (
 		<Media query="(min-width: 1025px)">
-			{matches => (
+			{({ matches }) => (
 				<div className={`Index ${matches ? 'Index__desktop' : 'Index__mobile'}`}>
 					{matches && <Fork stars={stars} />}
 					<div className={matches ? 'Index__desktop__main' : 'Index__mobile__main'}>

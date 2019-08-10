@@ -4,7 +4,7 @@ import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 import { createSelector } from 'reselect'
 import * as d3 from 'd3'
-import Media from 'react-media'
+import Media from './Media'
 
 
 const useStyles = makeStyles(theme => ({
@@ -103,7 +103,7 @@ const Chart = ({ todos }) => {
 		outerRadius = height / 2 - 30,
 		cornerRadius = 5
 
-		const centerWidth = 240 / 2 - ((outerRadius - 50) / 2);
+		const centerWidth = 240 / 2 - ((outerRadius - 80) / 2);
 
 		if (isUpdate) {
 			newData = chart.selectAll('path')
@@ -181,7 +181,7 @@ const Chart = ({ todos }) => {
 
 	return (
 		<Media query="(min-width: 1025px)">
-			{matches => (
+			{({ matches }) => (
 			 <div className={`Chart ${matches ? 'Chart__desktop' : 'Chart__mobile'}`}>
 				<Paper className={matches ? classes.paper.desktop : classes.paper.mobile}>
 					<div className="Chart__total">

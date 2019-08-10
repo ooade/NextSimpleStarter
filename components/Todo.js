@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { addTodo, removeTodo, updateTodo } from '../actions/todo'
 import TodoItem from './TodoItem'
-import Media from 'react-media'
+import Media from './Media'
 
 const useStyles = makeStyles(theme => ({
 	container: {
@@ -60,7 +60,7 @@ const Todo = ({ todos, addTodo, removeTodo, updateTodo }) => {
 
 	return (
 		<Media query="(min-width: 1025px)">
-			{matches => (
+			{({ matches }) => (
 			<div className={`Todo ${matches ? 'Todo__desktop' : 'Todo__mobile'}`}>
 			<Paper className={matches ? classes.paper.desktop : classes.paper.mobile}>
 				<form className={classes.container} onSubmit={handleAddTodo}>

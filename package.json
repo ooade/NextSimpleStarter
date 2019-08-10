@@ -20,7 +20,6 @@
 		"react": "16.9.0",
 		"react-axe": "^3.2.0",
 		"react-dom": "16.9.0",
-		"react-media": "^1.9.2",
 		"react-redux": "^7.1.0",
 		"redux": "^3.7.2",
 		"reselect": "^4.0.0"

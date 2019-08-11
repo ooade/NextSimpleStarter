@@ -25,6 +25,7 @@ const useStyles = makeStyles(theme => ({
 
 const purple = '#3f51b5'
 const red = '#f50057'
+const grey = '#CCC'
 
 const selectNumOfDoneTodos = createSelector(
 	state => state.todos,
@@ -66,7 +67,7 @@ const Chart = ({ todos, matches }) => {
 	}
 
 	const getSentimentValues = data => {
-		return data.map(function(node) {
+		return data.map( node => {
 			return node.value
 		})
 	}
@@ -77,22 +78,18 @@ const Chart = ({ todos, matches }) => {
 		})
 	}
 
-	const drawRing = (chart, newTodos) => {
+	const drawRing = (chart) => {
+		
 		const ringData = [
 			{ label: 'done', value: 0, color: red },
 			{ label: 'todo', value: 100, color: purple }
 		]
 
-		updateRing(ringData, chart, newTodos, false)
+		updateRing(ringData, chart, false)
 	}
 
-	const updateRing = (ringData, chart, newTodos, isUpdate) => {
-		const sentimentValues = getSentimentValues(ringData)
-		const sentimentColors = getSentimentColor(ringData)
-
-		let getFill = i => {
-			return sentimentColors[i]
-		}
+	const updateRing = (ringData, chart, isUpdate) => {
+		
 
 		let newData
 		let paths
@@ -104,9 +101,27 @@ const Chart = ({ todos, matches }) => {
 		const responsive = matches ? -70 : 80
 		const centerWidth = 240 / 2 - (outerRadius - responsive) / 2
 
-		console.log('TCL: updateRing -> centerWidth', centerWidth)
+		if (!newData) {
+			newData = [
+				{ label: 'none', value: 0, color: grey },
+				{ label: 'none', value: 100, color: grey }
+			]
+		}
 
+		// validate ringData
+
+		const validRingData = (isNaN(ringData[0].value)) ? newData : ringData;
+
+		const sentimentValues = getSentimentValues(validRingData)
+		const sentimentColors = getSentimentColor(validRingData)
+
+		let getFill = i => {
+			return sentimentColors[i]
+		}
+
+		
 		if (isUpdate) {
+
 			newData = chart.selectAll('path')
 			paths = newData
 				.merge(newData)
@@ -139,7 +154,7 @@ const Chart = ({ todos, matches }) => {
 			const duration = 2500
 			const t = 1 - Math.abs((elapsed % duration) / duration - 0.5) * 2
 
-			let sentimentValues = ringData.map(function(node) {
+			let sentimentValues = validRingData.map(function(node) {
 				return node.value
 			})
 
@@ -161,7 +176,7 @@ const Chart = ({ todos, matches }) => {
 
 		if (!mounted.current) {
 			mounted.current = true
-			drawRing(chart, newTodos)
+			drawRing(chart)
 		}
 	}
 
@@ -173,7 +188,7 @@ const Chart = ({ todos, matches }) => {
 			// do componentDidUpate
 			const chart = d3.select('#chart')
 			const ringData = calcData(newTodos)
-			updateRing(ringData, chart, newTodos, true)
+			updateRing(ringData, chart, true)
 		}
 	}
 

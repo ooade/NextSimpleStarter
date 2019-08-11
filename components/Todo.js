@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 import { addTodo, removeTodo, updateTodo } from '../actions/todo'
 import TodoItem from './TodoItem'
@@ -12,6 +13,10 @@ const useStyles = makeStyles(theme => ({
 		flexWrap: 'wrap',
 		borderBottom: '1px dashed #3f51b5',
 		justifyContent: 'center'
+	},
+	button: {
+		margin: theme.spacing(1),
+		textTransform: 'none'
 	},
 	textField: {
 		marginLeft: theme.spacing(1),
@@ -69,6 +74,14 @@ const Todo = ({ todos, addTodo, removeTodo, updateTodo, matches }) => {
 						onChange={handleTextChange}
 						margin="normal"
 					/>
+					<Button
+						variant="outlined"
+						onClick={handleAddTodo}
+						color={'primary'}
+						className={classes.button}
+					>
+						Add
+					</Button>
 				</form>
 				<ul
 					className={`Todo__list ${

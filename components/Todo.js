@@ -4,8 +4,10 @@ import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
+import AddIcon from '@material-ui/icons/Add';
 import { addTodo, removeTodo, updateTodo } from '../actions/todo'
 import TodoItem from './TodoItem'
+
 
 const useStyles = makeStyles(theme => ({
 	container: {
@@ -80,7 +82,7 @@ const Todo = ({ todos, addTodo, removeTodo, updateTodo, matches }) => {
 						color={'primary'}
 						className={classes.button}
 					>
-						Add
+						<AddIcon />
 					</Button>
 				</form>
 				<ul

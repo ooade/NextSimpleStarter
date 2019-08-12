@@ -20,17 +20,12 @@ class MyDocument extends Document {
 					<link rel="icon" href="static/img/favicon.ico" />
 					<link
 						rel="stylesheet"
-						href="https://code.getmdl.io/1.3.0/material.deep_purple-blue.min.css"
-					/>
-					<link
-						rel="stylesheet"
 						href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
 					/>
 				</Head>
 				<body style={{ background: '#EEE', color: '#444' }}>
 					<Main />
 					<NextScript />
-					<script defer src="https://code.getmdl.io/1.3.0/material.min.js" />
 				</body>
 			</html>
 		)

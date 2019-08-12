@@ -1,57 +1,55 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles'
+import Fab from '@material-ui/core/Fab'
+import DeleteIcon from '@material-ui/icons/Delete'
+import Checkbox from '@material-ui/core/Checkbox'
 
 const useStyles = makeStyles(theme => ({
-	button: {
-	  margin: theme.spacing(1),
-	  textTransform: "none"
+	todoItem: {
+		display: 'flex',
+		padding: theme.spacing(1),
+		borderTop: '2px dotted #EEF6FF',
+		'&:nth-child(even)': {
+			background: '#EEF6FF'
+		}
 	},
-	input: {
-	  display: 'none'
+	text: {
+		flex: 1,
+		display: 'flex',
+		alignItems: 'center'
 	},
-	todo: {
-		display: "flex",
-		flexDirection: "row",
-		listStyle: "none",
-		justifyContent: "space-between",
-		alignItems: "center"
-	},
-	li: {
-		listStyle: "none"
+	textWithStrike: {
+		textDecoration: 'line-through'
 	}
-  }));
+}))
 
 const TodoItem = ({ todo, remove, update }) => {
-	const classes = useStyles();
-
-	const renderText = text => {
-		if ( todo.isDone ) {
-			return (<span style={{ textDecoration: "line-through"}}>{text}</span>)
-		}
-
-		return text
-	}
+	const classes = useStyles()
 
 	return (
-		<li className={classes.li}>
-			<div className={classes.todo}>
-				<Button 
-					variant="contained"
-					onClick={() => remove(todo)}
-					color="primary"
-					className={classes.button}>
-					X
-				</Button>
-				{renderText(todo.text)}
-				<Button 
-					variant="contained"
-					onClick={() => update(todo)}
-					color={todo.isDone ? "secondary" : "primary"}
-					className={classes.button}>
-					{todo.isDone ? "Undo" : "Done!"}
-				</Button>
-			</div>
+		<li className={classes.todoItem}>
+			<Checkbox
+				checked={todo.isCompleted}
+				onChange={() => update(todo)}
+				color="primary"
+			/>
+			<span
+				className={
+					todo.isCompleted
+						? `${classes.textWithStrike} ${classes.text}`
+						: classes.text
+				}
+			>
+				{todo.text}
+			</span>
+			<Fab
+				onClick={() => remove(todo)}
+				color="secondary"
+				className={classes.button}
+				size="small"
+			>
+				<DeleteIcon />
+			</Fab>
 		</li>
 	)
 }

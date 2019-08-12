@@ -1,95 +1,72 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
+import React, { useState, useContext } from 'react'
 import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
-import AddIcon from '@material-ui/icons/Add';
-import { addTodo, removeTodo, updateTodo } from '../actions/todo'
+import { TodoContext } from '../contexts/todo'
 import TodoItem from './TodoItem'
 
-
 const useStyles = makeStyles(theme => ({
-	container: {
-		display: 'flex',
-		flexWrap: 'wrap',
-		borderBottom: '1px dashed #3f51b5',
-		justifyContent: 'center'
+	todo: {
+		maxWidth: 400,
+		margin: 'auto',
+		marginTop: 40,
+		textAlign: 'center'
 	},
-	button: {
-		margin: theme.spacing(1),
-		textTransform: 'none'
+	form: {
+		padding: theme.spacing(2)
 	},
-	textField: {
-		marginLeft: theme.spacing(1),
-		marginRight: theme.spacing(1),
-		width: 200
-	},
-	dense: {
-		marginTop: 19
-	},
-	menu: {
-		width: 200
-	},
-	paper: {
-		desktop: {
-			margin: 0,
-			marginBottom: 20,
-			width: 360,
-			padding: 0,
-			minHeight: 210
-		},
-		mobile: {
-			margin: 0,
-			marginBottom: 20,
-			width: 360,
-			padding: 0,
-			minHeight: 220
-		}
+	list: {
+		listStyle: 'none',
+		padding: 0
 	}
 }))
 
-const Todo = ({ todos, addTodo, removeTodo, updateTodo, matches }) => {
+const Todo = () => {
 	const classes = useStyles()
-	const [text, changeText] = useState('')
+	const [text, setText] = useState('')
+	const { addTodo, removeTodo, updateTodo, todos } = useContext(TodoContext)
+	const completedTodos = todos.filter(todo => todo.isCompleted)
 
 	const handleAddTodo = e => {
 		e.preventDefault()
 
 		addTodo(text)
-		changeText('')
+		setText('')
 	}
 
 	const handleTextChange = e => {
-		changeText(e.target.value)
+		setText(e.target.value)
 	}
 
 	return (
-		<div className={`Todo ${matches ? 'Todo__desktop' : 'Todo__mobile'}`}>
-			<Paper className={matches ? classes.paper.desktop : classes.paper.mobile}>
-				<form className={classes.container} onSubmit={handleAddTodo}>
+		<Grid
+			container
+			className={classes.todo}
+			justify="center"
+			direction="column"
+		>
+			<header>
+				<img src="/static/img/android-chrome-192x192.png" alt="Logo" />
+			</header>
+			<Paper component="main">
+				<form onSubmit={handleAddTodo} className={classes.form}>
 					<TextField
-						id="standard-name"
-						label="What must be done?"
-						className={classes.textField}
+						fullWidth
 						value={text}
-						onChange={handleTextChange}
 						margin="normal"
+						label="What must be done?"
+						onChange={handleTextChange}
+						inputProps={{ 'aria-label': 'What should be done?' }}
 					/>
-					<Button
-						variant="outlined"
-						onClick={handleAddTodo}
-						color={'primary'}
-						className={classes.button}
-					>
-						<AddIcon />
-					</Button>
+					{!!todos.length && (
+						<Grid container justify="space-between">
+							<Grid item>Total: {todos.length}</Grid>
+							<Grid item>Completed: {completedTodos.length}</Grid>
+						</Grid>
+					)}
 				</form>
-				<ul
-					className={`Todo__list ${
-						matches ? 'Todo__list__desktop' : 'Todo__list__mobile'
-					}`}
-				>
+				<ul className={classes.list}>
 					{todos.map((todo, i) => (
 						<TodoItem
 							key={i}
@@ -100,59 +77,8 @@ const Todo = ({ todos, addTodo, removeTodo, updateTodo, matches }) => {
 					))}
 				</ul>
 			</Paper>
-			<style>
-				{`
-					.Todo {
-						margin-bottom: 20px;
-					}
-
-					.Todo__desktop {
-						width: 360px;
-						min-height: 210px;
-					}
-
-					.Todo__mobile {
-						width: 95vw;
-					}
-					
-					form {
-						background: #fff;
-						padding: 10px;
-					}
-
-					.Todo__list {
-						min-height: 120px;
-						margin: 0;
-						padding: 0;
-						text-align: left;
-						list-style: none;
-					}
-
-					.Todo__list li {
-						padding: 10px;
-						background: #FFF;
-						border-bottom: 1px solid #EEE;
-					}
-					
-					.Todo__list li:nth-child(2n) {
-						background: #EEF6FF;
-					}
-
-					.Todo__list li:last-child {
-						border-bottom: none;
-					}
-					.mdl-card {
-						margin: auto;
-						transition: all .3s;
-						transform: translateY(20px);
-					}
-					`}
-			</style>
-		</div>
+		</Grid>
 	)
 }
 
-export default connect(
-	({ todos }) => ({ todos }),
-	{ addTodo, removeTodo, updateTodo }
-)(Todo)
+export default Todo

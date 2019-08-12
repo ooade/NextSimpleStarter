@@ -57,7 +57,7 @@ const Todo = () => {
 						margin="normal"
 						label="What must be done?"
 						onChange={handleTextChange}
-						inputProps={{ 'aria-label': 'What should be done?' }}
+						inputProps={{ 'aria-label': 'What must be done?' }}
 					/>
 					{!!todos.length && (
 						<Grid container justify="space-between">

@@ -3,6 +3,13 @@
 <p align="center"><a href="https://travis-ci.org/ooade/NextSimpleStarter"><img src="https://travis-ci.org/ooade/NextSimpleStarter.svg?branch=master" alt="travis-ci"/></a> <a href="https://codeclimate.com/github/ooade/NextSimpleStarter/badges"><img src="https://codeclimate.com/github/ooade/NextSimpleStarter/badges/gpa.svg" alt="codeclimate-gpa-badge"/></a> <a href="https://codeclimate.com/github/ooade/NextSimpleStarter"><img src="https://codeclimate.com/github/ooade/NextSimpleStarter/badges/issue_count.svg" alt="codeclimate-issues-badge"/></a><br/>
 <h3 align="center">Simple NextJS PWA boilerplate.</h3></p>
 </p>
+<p align="center">
+<a href="https://nextss-headwinds.now.sh/" target="_blank" rel="noopener noreferrer">
+<img src="nextjs-pwa.png" alt="screenshot"/>
+</a>
+</p>
+
+[demo](https://nextss-headwinds.now.sh/)
 
 ## Contents
 
@@ -51,7 +58,20 @@ or
 ```sh
 npm run build
 ```
-### Deployment
+
+### Deploy to Now
+
+```sh
+now dev
+```
+
+For production, update alias in the now.json ie `"alias": "nextss-yourname.now.sh",`
+
+```sh
+now
+```
+
+### Deploy to Heroku
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/ooade/NextSimpleStarter)
 <details>
 	<summary>Heroku</summary>

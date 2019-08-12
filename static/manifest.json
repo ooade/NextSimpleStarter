@@ -26,6 +26,11 @@
       "src": "img/splashscreen-icon-384x384.png",
       "sizes": "384x384",
       "type": "image/png"
+    },
+    {
+      "src": "img/splashscreen-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "start_url": "/",

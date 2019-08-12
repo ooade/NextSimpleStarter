@@ -1,16 +1,57 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
-const TodoItem = ({ todo, remove }) => {
+const useStyles = makeStyles(theme => ({
+	button: {
+	  margin: theme.spacing(1),
+	  textTransform: "none"
+	},
+	input: {
+	  display: 'none'
+	},
+	todo: {
+		display: "flex",
+		flexDirection: "row",
+		listStyle: "none",
+		justifyContent: "space-between",
+		alignItems: "center"
+	},
+	li: {
+		listStyle: "none"
+	}
+  }));
+
+const TodoItem = ({ todo, remove, update }) => {
+	const classes = useStyles();
+
+	const renderText = text => {
+		if ( todo.isDone ) {
+			return (<span style={{ textDecoration: "line-through"}}>{text}</span>)
+		}
+
+		return text
+	}
+
 	return (
-		<li style={{ listStyle: 'none' }}>
-			<button
-				className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect"
-				onClick={() => remove(todo)}
-				style={{ fontSize: 12 }}
-			>
-				x
-			</button>{' '}
-			{todo.text}
+		<li className={classes.li}>
+			<div className={classes.todo}>
+				<Button 
+					variant="contained"
+					onClick={() => remove(todo)}
+					color="primary"
+					className={classes.button}>
+					X
+				</Button>
+				{renderText(todo.text)}
+				<Button 
+					variant="contained"
+					onClick={() => update(todo)}
+					color={todo.isDone ? "secondary" : "primary"}
+					className={classes.button}>
+					{todo.isDone ? "Undo" : "Done!"}
+				</Button>
+			</div>
 		</li>
 	)
 }

@@ -1,9 +1,9 @@
 import React from 'react'
+import ReactDom from 'react-dom'
 import Head from 'next/head'
 import { Provider } from 'react-redux'
 import App, { Container } from 'next/app'
 import withRedux from 'next-redux-wrapper'
-
 import initStore from '../utils/store'
 
 /* debug to log how the store is being used */
@@ -19,6 +19,13 @@ export default withRedux(initStore, {
 						? await Component.getInitialProps(ctx)
 						: {})
 				}
+			}
+		}
+
+		componentDidMount(){
+			if (process.env.NODE_ENV !== 'production') {
+				const axe = require('react-axe');
+				axe(React, ReactDom, 1000);
 			}
 		}
 

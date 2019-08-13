@@ -5,7 +5,7 @@ import { ServerStyleSheets } from '@material-ui/styles'
 class MyDocument extends Document {
 	render() {
 		return (
-			<html lang="en-US">
+			<html lang="en-GB">
 				<Head>
 					<meta
 						name="viewport"
@@ -23,7 +23,7 @@ class MyDocument extends Document {
 						href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
 					/>
 				</Head>
-				<body style={{ background: '#EEE', color: '#444' }}>
+				<body>
 					<Main />
 					<NextScript />
 				</body>

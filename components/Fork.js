@@ -17,9 +17,10 @@ const Fork = ({ stars }) => {
 		<div className={classes.fork}>
 			<Badge badgeContent={stars || 0} max={999} color="primary">
 				<Fab
-					variant="extended"
-					href="https://github.com/ooade/NextSimpleStarter"
 					target="_blank"
+					variant="extended"
+					rel="noreferrer noopener"
+					href="https://github.com/ooade/NextSimpleStarter"
 				>
 					Fork me
 				</Fab>

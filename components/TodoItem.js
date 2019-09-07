@@ -25,28 +25,25 @@ const useStyles = makeStyles(theme => ({
 
 const TodoItem = ({ todo, remove, update }) => {
 	const classes = useStyles()
+	const isTodoCompleted = todo.completed
 
 	return (
 		<li className={classes.todoItem}>
 			<Checkbox
-				checked={todo.isCompleted}
+				checked={isTodoCompleted}
 				onChange={() => update(todo)}
 				color="primary"
 			/>
 			<span
 				className={
-					todo.isCompleted
+					isTodoCompleted
 						? `${classes.textWithStrike} ${classes.text}`
 						: classes.text
 				}
 			>
 				{todo.text}
 			</span>
-			<Fab
-				onClick={() => remove(todo)}
-				color="secondary"
-				size="small"
-			>
+			<Fab onClick={() => remove(todo)} color="secondary" size="small">
 				<DeleteIcon />
 			</Fab>
 		</li>

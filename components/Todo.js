@@ -29,12 +29,13 @@ const Todo = () => {
 	const classes = useStyles()
 	const [text, setText] = useState('')
 	const { addTodo, removeTodo, updateTodo, todos } = useContext(TodoContext)
-	const completedTodos = todos.filter(todo => !todo.isCompleted)
+	const completedTodos = todos.filter(todo => todo.completed)
 
 	const handleAddTodo = e => {
 		e.preventDefault()
+		const trimmedText = text.trim()
 
-		addTodo(text)
+		trimmedText && addTodo(trimmedText)
 		setText('')
 	}
 

@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from 'react'
 import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from '../constants'
+import todoActions from '../actions/todo'
 
 const DEFAULTS = {
 	todos: []
@@ -7,23 +8,18 @@ const DEFAULTS = {
 
 export const TodoContext = createContext(DEFAULTS)
 
-const createRandomId = () =>
-	Math.random()
-		.toString(36)
-		.substring(2)
-
 const TodoProvider = ({ children }) => {
 	const [todos, dispatch] = useReducer((state, action) => {
-		const { type, text, todo } = action
+		const { type, todo } = action
 
 		switch (type) {
 			case ADD_TODO:
 				return [
 					...state,
 					{
-						id: createRandomId(),
-						text,
-						isCompleted: false
+						id: todo.id,
+						text: todo.text,
+						completed: false
 					}
 				]
 
@@ -31,7 +27,7 @@ const TodoProvider = ({ children }) => {
 				const todoIndex = state.findIndex(({ id }) => id === todo.id)
 				return [
 					...state.slice(0, todoIndex),
-					{ ...todo, isCompleted: !todo.isCompleted },
+					{ ...todo, completed: !todo.completed },
 					...state.slice(todoIndex + 1)
 				]
 
@@ -42,14 +38,8 @@ const TodoProvider = ({ children }) => {
 		}
 	}, [])
 
-	const addTodo = text => dispatch({ type: ADD_TODO, text })
-
-	const removeTodo = todo => dispatch({ type: REMOVE_TODO, todo })
-
-	const updateTodo = todo => dispatch({ type: UPDATE_TODO, todo })
-
 	return (
-		<TodoContext.Provider value={{ addTodo, removeTodo, updateTodo, todos }}>
+		<TodoContext.Provider value={{ ...todoActions(dispatch), todos }}>
 			{children}
 		</TodoContext.Provider>
 	)

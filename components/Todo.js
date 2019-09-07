@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
 		textAlign: 'center'
 	},
 	form: {
+		width: '100%',
 		padding: theme.spacing(2)
 	},
 	list: {

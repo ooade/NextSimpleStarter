@@ -45,7 +45,6 @@ const TodoItem = ({ todo, remove, update }) => {
 			<Fab
 				onClick={() => remove(todo)}
 				color="secondary"
-				className={classes.button}
 				size="small"
 			>
 				<DeleteIcon />

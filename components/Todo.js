@@ -13,8 +13,10 @@ const useStyles = makeStyles(theme => ({
 		marginTop: 40,
 		textAlign: 'center'
 	},
+	paper: {
+		width: '100%'
+	},
 	form: {
-		width: '100%',
 		padding: theme.spacing(2)
 	},
 	list: {
@@ -27,7 +29,7 @@ const Todo = () => {
 	const classes = useStyles()
 	const [text, setText] = useState('')
 	const { addTodo, removeTodo, updateTodo, todos } = useContext(TodoContext)
-	const completedTodos = todos.filter(todo => todo.isCompleted)
+	const completedTodos = todos.filter(todo => !todo.isCompleted)
 
 	const handleAddTodo = e => {
 		e.preventDefault()
@@ -50,7 +52,7 @@ const Todo = () => {
 			<header>
 				<img src="/static/img/android-chrome-192x192.png" alt="Logo" />
 			</header>
-			<Paper component="main">
+			<Paper component="main" className={classes.paper}>
 				<form onSubmit={handleAddTodo} className={classes.form}>
 					<TextField
 						fullWidth

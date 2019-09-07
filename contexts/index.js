@@ -1,5 +1,5 @@
 import React from 'react'
-import TodoProvider from './todo'
+import TodoProvider from './todos'
 import BaseProvider from './base'
 
 const Provider = ({ children }) => (

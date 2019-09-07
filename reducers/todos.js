@@ -1,14 +1,7 @@
-import React, { createContext, useReducer } from 'react'
+import { useReducer } from 'react'
 import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from '../constants'
-import todoActions from '../actions/todo'
 
-const DEFAULTS = {
-	todos: []
-}
-
-export const TodoContext = createContext(DEFAULTS)
-
-const TodoProvider = ({ children }) => {
+const useTodoReducers = () => {
 	const [todos, dispatch] = useReducer((state, action) => {
 		const { type, todo } = action
 
@@ -38,11 +31,7 @@ const TodoProvider = ({ children }) => {
 		}
 	}, [])
 
-	return (
-		<TodoContext.Provider value={{ ...todoActions(dispatch), todos }}>
-			{children}
-		</TodoContext.Provider>
-	)
+	return { todos, dispatch }
 }
 
-export default TodoProvider
+export default useTodoReducers

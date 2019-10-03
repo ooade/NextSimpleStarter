@@ -17,7 +17,7 @@
 		"next-offline": "^4.0.0",
 		"react": "16.10.2",
 		"react-axe": "^3.2.0",
-		"react-dom": "16.10.1"
+		"react-dom": "16.10.2"
 	},
 	"scripts": {
 		"dev": "next",

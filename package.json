@@ -15,9 +15,9 @@
 		"isomorphic-fetch": "^2.2.1",
 		"next": "^9.0.0",
 		"next-offline": "^4.0.0",
-		"react": "16.10.2",
+		"react": "16.11.0",
 		"react-axe": "^3.2.0",
-		"react-dom": "16.10.2"
+		"react-dom": "16.11.0"
 	},
 	"scripts": {
 		"dev": "next",

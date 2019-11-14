@@ -2,13 +2,13 @@ import { useReducer } from 'react'
 import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from '../constants'
 
 const useTodoReducers = () => {
-	const [todos, dispatch] = useReducer((state, action) => {
+	const [todos, dispatch] = useReducer((todos, action) => {
 		const { type, todo } = action
 
 		switch (type) {
 			case ADD_TODO:
 				return [
-					...state,
+					...todos,
 					{
 						id: todo.id,
 						text: todo.text,
@@ -17,17 +17,18 @@ const useTodoReducers = () => {
 				]
 
 			case UPDATE_TODO:
-				const todoIndex = state.findIndex(({ id }) => id === todo.id)
+				const todoIndex = todos.findIndex(({ id }) => id === todo.id)
 				return [
-					...state.slice(0, todoIndex),
+					...todos.slice(0, todoIndex),
 					{ ...todo, completed: !todo.completed },
-					...state.slice(todoIndex + 1)
+					...todos.slice(todoIndex + 1)
 				]
 
 			case REMOVE_TODO:
-				return state.filter(currentTodo => currentTodo !== todo)
+				return todos.filter(currentTodo => currentTodo !== todo)
+
 			default:
-				return state
+				return todos
 		}
 	}, [])
 

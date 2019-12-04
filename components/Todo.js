@@ -13,6 +13,13 @@ const useStyles = makeStyles(theme => ({
 		marginTop: 40,
 		textAlign: 'center'
 	},
+	srOnly: {
+		width: 0,
+		height: 0,
+		position: 'absolute',
+		left: '-9999px',
+		overflow: 'hidden'
+	},
 	paper: {
 		width: '100%'
 	},
@@ -63,6 +70,7 @@ const Todo = () => {
 						onChange={handleTextChange}
 						inputProps={{ 'aria-label': 'What must be done?' }}
 					/>
+					<button className={classes.srOnly}> Submit Todo </button>
 					{!!todos.length && (
 						<Grid container justify="space-between">
 							<Grid item>Total: {todos.length}</Grid>

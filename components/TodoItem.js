@@ -54,7 +54,12 @@ const TodoItem = ({ todo, remove, update }) => {
 			>
 				{todo.text}
 			</span>
-			<Fab onClick={() => remove(todo)} color="secondary" size="small">
+			<Fab
+				aria-label="Delete Todo"
+				onClick={() => remove(todo)}
+				color="secondary"
+				size="small"
+			>
 				<DeleteIcon />
 			</Fab>
 		</li>

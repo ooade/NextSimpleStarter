@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import Head from 'next/head'
-import App, { Container } from 'next/app'
+import App from 'next/app'
 import Provider from '../contexts'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
@@ -41,7 +41,7 @@ export default class MyApp extends App {
 		})
 
 		return (
-			<Container>
+			<>
 				<Head>
 					<title>Todo App</title>
 				</Head>
@@ -52,7 +52,7 @@ export default class MyApp extends App {
 						</Provider>
 					</CssBaseline>
 				</ThemeProvider>
-			</Container>
+			</>
 		)
 	}
 }

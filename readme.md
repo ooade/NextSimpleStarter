@@ -10,6 +10,7 @@
 - [Development Workflow](#development-workflow)
 - [Deploy to Now](#deploy-to-now)
 - [Deploy to Netlify](#deploy-to-netlify)
+- [Deploy to Gitpod](#deploy-to-gitpod)
 
 ### Installation
 
@@ -77,15 +78,10 @@ For production, update alias in the now.json ie `"alias": "nextss-yourname.now.s
 ```sh
 now
 ```
-
-### Deploy to Heroku
-
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/ooade/NextSimpleStarter)
 
-<details>
-	<summary>Heroku</summary>
-	Just follow <a href="https://github.com/mars/heroku-nextjs">Mars's Guide</a> and you're good to go :clap:
-</details>
+### Deploy to Heroku
+Just follow <a href="https://github.com/mars/heroku-nextjs">Mars's Guide</a> and you're good to go :clap:
 
 ### Deploy to Netlify
 
@@ -94,6 +90,9 @@ now
 - Choose VCS.
 - Add build command `npm run export`.
 - Add publish directory `out`.
+
+### Deploy to Gitpod
+<a href="https://gitpod.io/#https://github.com/ooade/NextSimpleStarter">Click here</a> to deploy on Gitpod
 
 ### Contribution
 

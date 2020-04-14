@@ -15,23 +15,36 @@ const DeleteIcon = () => (
 	</svg>
 )
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
 	todoItem: {
 		display: 'flex',
 		padding: theme.spacing(1),
-		borderTop: '2px dotted #EEF6FF',
+		animationName: '$slideDown',
+		animationDuration: '300ms',
+		animationFillMode: 'forwards',
+		animationDelay: '0s',
+		animationTimingFunction: 'cubic-bezier(0.1, 0.23, 0.23, 1.44)',
 		'&:nth-child(even)': {
-			background: '#EEF6FF'
-		}
+			background: '#EEF6FF',
+		},
+	},
+	'@keyframes slideDown': {
+		from: {
+			opacity: 0,
+			transform: 'translateY(-10px)',
+		},
+		to: {
+			transform: 'translateY(0px)',
+		},
 	},
 	text: {
 		flex: 1,
 		display: 'flex',
-		alignItems: 'center'
+		alignItems: 'center',
 	},
 	textWithStrike: {
-		textDecoration: 'line-through'
-	}
+		textDecoration: 'line-through',
+	},
 }))
 
 const TodoItem = ({ todo, remove, update }) => {

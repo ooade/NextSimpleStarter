@@ -1,44 +1,50 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
-import { TodoContext } from '../contexts/todos'
+import { Todo as TodoContainer } from '../hooks/useTodo'
 import TodoItem from './TodoItem'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
 	todo: {
 		maxWidth: 400,
 		margin: 'auto',
 		marginTop: 40,
-		textAlign: 'center'
+		textAlign: 'center',
 	},
 	srOnly: {
 		width: 0,
 		height: 0,
 		position: 'absolute',
 		left: '-9999px',
-		overflow: 'hidden'
+		overflow: 'hidden',
 	},
 	paper: {
-		width: '100%'
+		width: '100%',
 	},
 	form: {
-		padding: theme.spacing(2)
+		padding: theme.spacing(2),
 	},
 	list: {
 		listStyle: 'none',
-		padding: 0
-	}
+		padding: 0,
+	},
 }))
 
 const Todo = () => {
 	const classes = useStyles()
 	const [text, setText] = useState('')
-	const { addTodo, removeTodo, updateTodo, todos } = useContext(TodoContext)
-	const completedTodos = todos.filter(todo => todo.completed)
+	const {
+		addTodo,
+		removeTodo,
+		updateTodo,
+		todos,
+	} = TodoContainer.useContainer()
 
-	const handleAddTodo = e => {
+	const completedTodos = todos.filter((todo) => todo.completed)
+
+	const handleAddTodo = (e) => {
 		e.preventDefault()
 		const trimmedText = text.trim()
 
@@ -46,7 +52,7 @@ const Todo = () => {
 		setText('')
 	}
 
-	const handleTextChange = e => {
+	const handleTextChange = (e) => {
 		setText(e.target.value)
 	}
 

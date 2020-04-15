@@ -66,7 +66,12 @@ const Todo = () => {
 			direction="column"
 		>
 			<header>
-				<img src="/static/img/android-chrome-192x192.png" alt="Logo" />
+				<img
+					src="/static/img/android-chrome-192x192.png"
+					alt="Logo"
+					width="192"
+					height="192"
+				/>
 			</header>
 			<Paper component="main" className={classes.paper} elevation={3}>
 				<form onSubmit={handleAddTodo} className={classes.form}>

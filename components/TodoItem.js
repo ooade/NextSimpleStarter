@@ -15,39 +15,53 @@ const DeleteIcon = () => (
 	</svg>
 )
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
 	todoItem: {
 		display: 'flex',
 		padding: theme.spacing(1),
-		borderTop: '2px dotted #EEF6FF',
+		opacity: 0,
+		animationName: '$slideDown',
+		animationDuration: '300ms',
+		animationFillMode: 'forwards',
+		animationDelay: '0s',
+		animationTimingFunction: 'cubic-bezier(0.1, 0.23, 0.23, 1.44)',
 		'&:nth-child(even)': {
-			background: '#EEF6FF'
-		}
+			background: '#EEF6FF',
+		},
+	},
+	'@keyframes slideDown': {
+		from: {
+			opacity: 0,
+			transform: 'translateY(-10px)',
+		},
+		to: {
+			opacity: 1,
+			transform: 'translateY(0px)',
+		},
 	},
 	text: {
 		flex: 1,
 		display: 'flex',
-		alignItems: 'center'
+		alignItems: 'center',
 	},
 	textWithStrike: {
-		textDecoration: 'line-through'
-	}
+		textDecoration: 'line-through',
+	},
 }))
 
 const TodoItem = ({ todo, remove, update }) => {
 	const classes = useStyles()
-	const isTodoCompleted = todo.completed
 
 	return (
 		<li className={classes.todoItem}>
 			<Checkbox
-				checked={isTodoCompleted}
-				onChange={() => update(todo)}
+				checked={todo.completed}
+				onChange={() => update({ ...todo, completed: !todo.completed })}
 				color="primary"
 			/>
 			<span
 				className={
-					isTodoCompleted
+					todo.completed
 						? `${classes.textWithStrike} ${classes.text}`
 						: classes.text
 				}

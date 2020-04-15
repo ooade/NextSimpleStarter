@@ -1,8 +1,8 @@
 import React from 'react'
-import ReactDom from 'react-dom'
+import ReactDOM from 'react-dom'
 import Head from 'next/head'
 import App from 'next/app'
-import Provider from '../contexts'
+import { Todo } from '../hooks/useTodo'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -14,15 +14,15 @@ export default class MyApp extends App {
 				// Call page-level getInitialProps
 				...(Component.getInitialProps
 					? await Component.getInitialProps(ctx)
-					: {})
-			}
+					: {}),
+			},
 		}
 	}
 
 	componentDidMount() {
 		if (process.env.NODE_ENV !== 'production') {
 			const axe = require('react-axe')
-			axe(React, ReactDom, 1000)
+			axe(React, ReactDOM, 1000)
 		}
 	}
 
@@ -32,12 +32,12 @@ export default class MyApp extends App {
 		const theme = createMuiTheme({
 			palette: {
 				background: {
-					default: '#EEE'
+					default: '#EEE',
 				},
 				primary: {
-					main: '#673ab7'
-				}
-			}
+					main: '#673ab7',
+				},
+			},
 		})
 
 		return (
@@ -47,9 +47,9 @@ export default class MyApp extends App {
 				</Head>
 				<ThemeProvider theme={theme}>
 					<CssBaseline>
-						<Provider>
+						<Todo.Provider>
 							<Component {...pageProps} />
-						</Provider>
+						</Todo.Provider>
 					</CssBaseline>
 				</ThemeProvider>
 			</>

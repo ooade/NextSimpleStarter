@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 	todoItem: {
 		display: 'flex',
 		padding: theme.spacing(1),
+		opacity: 0,
 		animationName: '$slideDown',
 		animationDuration: '300ms',
 		animationFillMode: 'forwards',
@@ -34,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 			transform: 'translateY(-10px)',
 		},
 		to: {
+			opacity: 1,
 			transform: 'translateY(0px)',
 		},
 	},
@@ -49,18 +51,17 @@ const useStyles = makeStyles((theme) => ({
 
 const TodoItem = ({ todo, remove, update }) => {
 	const classes = useStyles()
-	const isTodoCompleted = todo.completed
 
 	return (
 		<li className={classes.todoItem}>
 			<Checkbox
-				checked={isTodoCompleted}
-				onChange={() => update(todo)}
+				checked={todo.completed}
+				onChange={() => update({ ...todo, completed: !todo.completed })}
 				color="primary"
 			/>
 			<span
 				className={
-					isTodoCompleted
+					todo.completed
 						? `${classes.textWithStrike} ${classes.text}`
 						: classes.text
 				}

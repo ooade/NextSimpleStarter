@@ -29,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
 	list: {
 		listStyle: 'none',
 		padding: 0,
+		marginBottom: 0,
+		borderRadius: '0 0 4px 4px',
 	},
 }))
 
@@ -66,7 +68,7 @@ const Todo = () => {
 			<header>
 				<img src="/static/img/android-chrome-192x192.png" alt="Logo" />
 			</header>
-			<Paper component="main" className={classes.paper}>
+			<Paper component="main" className={classes.paper} elevation={3}>
 				<form onSubmit={handleAddTodo} className={classes.form}>
 					<TextField
 						fullWidth

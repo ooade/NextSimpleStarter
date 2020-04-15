@@ -1,61 +1,39 @@
-import { useReducer } from 'react'
+import { useState } from 'react'
 import createContainer from '.'
-import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from '../constants'
 
-const useTodoActions = (dispatch) => {
+const useTodo = () => {
+	const initialState = [
+		{
+			id: 1,
+			text: 'A simple initial todo',
+			completed: false,
+		},
+	]
+
+	const [todos, setTodos] = useState(initialState)
+
 	const createRandomId = () => Math.random().toString(36).substring(2)
 
 	const addTodo = (text) => {
 		const todo = {
 			id: createRandomId(),
 			text,
+			completed: false,
 		}
-		return dispatch({ type: ADD_TODO, todo })
+		setTodos([...todos, todo])
 	}
 
-	const removeTodo = (todo) => dispatch({ type: REMOVE_TODO, todo })
+	const removeTodo = (todo) => {
+		const filteredTodos = todos.filter((v) => v !== todo)
+		setTodos(filteredTodos)
+	}
 
-	const updateTodo = (todo) => dispatch({ type: UPDATE_TODO, todo })
+	const updateTodo = (todo) => {
+		const updatedTodos = todos.map((v) => (v.id === todo.id ? todo : v))
+		setTodos(updatedTodos)
+	}
 
-	return { addTodo, removeTodo, updateTodo }
-}
-
-const useTodo = () => {
-	const initialState = []
-
-	const [todos, dispatch] = useReducer((todos, action) => {
-		const { type, todo } = action
-
-		switch (type) {
-			case ADD_TODO:
-				return [
-					...todos,
-					{
-						id: todo.id,
-						text: todo.text,
-						completed: false,
-					},
-				]
-
-			case UPDATE_TODO:
-				const todoIndex = todos.findIndex(({ id }) => id === todo.id)
-				return [
-					...todos.slice(0, todoIndex),
-					{ ...todo, completed: !todo.completed },
-					...todos.slice(todoIndex + 1),
-				]
-
-			case REMOVE_TODO:
-				return todos.filter((currentTodo) => currentTodo !== todo)
-
-			default:
-				return todos
-		}
-	}, initialState)
-
-	const actions = useTodoActions(dispatch)
-
-	return { todos, ...actions }
+	return { todos, addTodo, removeTodo, updateTodo }
 }
 
 export const Todo = createContainer(useTodo)

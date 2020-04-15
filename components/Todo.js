@@ -3,7 +3,7 @@ import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
-import { Todo as TodoContainer } from '../hooks/useTodo'
+import { Todo } from '../hooks/useTodo'
 import TodoItem from './TodoItem'
 
 const useStyles = makeStyles((theme) => ({
@@ -34,15 +34,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 }))
 
-const Todo = () => {
+export default () => {
 	const classes = useStyles()
 	const [text, setText] = useState('')
-	const {
-		addTodo,
-		removeTodo,
-		updateTodo,
-		todos,
-	} = TodoContainer.useContainer()
+	const { addTodo, removeTodo, updateTodo, todos } = Todo.Value()
 
 	const completedTodos = todos.filter((todo) => todo.completed)
 
@@ -105,5 +100,3 @@ const Todo = () => {
 		</Grid>
 	)
 }
-
-export default Todo

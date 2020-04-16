@@ -11,11 +11,11 @@ const createContainer = (customHook) => {
 		return <Context.Provider value={value}>{children}</Context.Provider>
 	}
 
-	const Value = () => useContext(Context)
+	const useContainer = () => useContext(Context)
 
 	return {
 		Provider,
-		Value,
+		useContainer,
 	}
 }
 

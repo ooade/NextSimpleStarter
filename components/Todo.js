@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 export default () => {
 	const classes = useStyles()
 	const [text, setText] = useState('')
-	const { addTodo, removeTodo, updateTodo, todos } = Todo.Value()
+	const { addTodo, todos } = Todo.useContainer()
 
 	const completedTodos = todos.filter((todo) => todo.completed)
 
@@ -88,12 +88,7 @@ export default () => {
 				</form>
 				<ul className={classes.list}>
 					{todos.map((todo, i) => (
-						<TodoItem
-							key={i}
-							todo={todo}
-							remove={removeTodo}
-							update={updateTodo}
-						/>
+						<TodoItem key={i} todo={todo} />
 					))}
 				</ul>
 			</Paper>

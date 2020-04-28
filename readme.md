@@ -6,11 +6,11 @@
 
 ## Contents
 
-- [Installation](#installation)
-- [Development Workflow](#development-workflow)
-- [Deploy to Now](#deploy-to-now)
-- [Deploy to Netlify](#deploy-to-netlify)
-- [Deploy to Gitpod](#deploy-to-gitpod)
+- [Installation](#installation).
+- [Development Workflow](#development-workflow).
+- [Deploy to Now](#deploy-to-now).
+- [Deploy to Netlify](#deploy-to-netlify).
+- [Deploy to Gitpod](#deploy-to-gitpod).
 
 ### Installation
 
@@ -92,7 +92,7 @@ Just follow <a href="https://github.com/mars/heroku-nextjs">Mars's Guide</a> and
 - Add publish directory `out`.
 
 ### Deploy to Gitpod
-<a href="https://gitpod.io/#https://github.com/ooade/NextSimpleStarter">Click here</a> to deploy on Gitpod
+<a href="https://gitpod.io/#https://github.com/ooade/NextSimpleStarter">Click here</a> to deploy on Gitpod.
 
 ### Contribution
 

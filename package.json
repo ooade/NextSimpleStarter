@@ -1,47 +1,44 @@
 {
-  "name": "next-simple-starter",
-  "private": true,
-  "version": "3.0.0",
-  "repository": {
-    "url": "https://github.com/ooade/NextSimpleStarter"
-  },
-  "license": "MIT",
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "dependencies": {
-    "@material-ui/core": "^4.6.1",
-    "isomorphic-fetch": "^2.2.1",
-    "next": "^9.4.1",
-    "next-offline": "^5.0.0",
-    "react": "^16.13.1",
-    "react-axe": "^3.4.1",
-    "react-dom": "^16.13.1"
-  },
-  "scripts": {
-    "dev": "next",
-    "start": "next start",
-    "lint": "eslint components",
-    "build": "next build",
-    "build:server": "NEXT_TARGET=server next build",
-    "export:server": "NEXT_TARGET=server next export",
-    "export": "npm run build:server && npm run export:server",
-    "start:static": "serve",
-    "now-build": "next build",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
-  },
-  "devDependencies": {
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.2.0",
-    "eslint-config-react-app": "^5.0.1",
-    "eslint-plugin-flowtype": "^5.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^4.0.0",
-    "serve": "^11.1.0",
-    "snyk": "^1.323.1"
-  },
-  "snyk": true
+	"name": "next-simple-starter",
+	"private": true,
+	"version": "3.0.0",
+	"repository": {
+		"url": "https://github.com/ooade/NextSimpleStarter"
+	},
+	"license": "MIT",
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"dependencies": {
+		"@material-ui/core": "^4.6.1",
+		"isomorphic-fetch": "^2.2.1",
+		"next": "^9.4.1",
+		"next-offline": "^5.0.0",
+		"react": "^16.13.1",
+		"react-axe": "^3.4.1",
+		"react-dom": "^16.13.1"
+	},
+	"scripts": {
+		"dev": "next",
+		"start": "next start",
+		"lint": "eslint components",
+		"build": "next build",
+		"build:server": "NEXT_TARGET=server next build",
+		"export:server": "NEXT_TARGET=server next export",
+		"export": "npm run build:server && npm run export:server",
+		"start:static": "serve",
+		"now-build": "next build"
+	},
+	"devDependencies": {
+		"babel-eslint": "^10.0.3",
+		"eslint": "^6.2.0",
+		"eslint-config-react-app": "^5.0.1",
+		"eslint-plugin-flowtype": "^5.0.0",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-react": "^7.14.3",
+		"eslint-plugin-react-hooks": "^4.0.0",
+		"serve": "^11.1.0"
+	},
+	"snyk": true
 }

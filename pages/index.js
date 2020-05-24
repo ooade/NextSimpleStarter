@@ -1,4 +1,3 @@
-import 'isomorphic-fetch'
 import React from 'react'
 import Fork from '../components/Fork'
 import Todo from '../components/Todo'

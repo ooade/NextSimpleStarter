@@ -2,7 +2,6 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Fab from '@material-ui/core/Fab'
 import Checkbox from '@material-ui/core/Checkbox'
-import { Todo } from '../hooks/useTodo'
 
 const DeleteIcon = () => (
 	<svg
@@ -50,9 +49,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 }))
 
-const TodoItem = ({ todo }) => {
+const TodoItem = ({ todo, updateTodo, removeTodo }) => {
 	const classes = useStyles()
-	const { updateTodo, removeTodo } = Todo.useContainer()
 
 	return (
 		<li className={classes.todoItem}>

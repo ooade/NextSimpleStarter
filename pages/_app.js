@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Head from 'next/head'
 import App from 'next/app'
-import { Todo } from '../hooks/useTodo'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -47,9 +46,7 @@ export default class MyApp extends App {
 				</Head>
 				<ThemeProvider theme={theme}>
 					<CssBaseline>
-						<Todo.Provider>
 							<Component {...pageProps} />
-						</Todo.Provider>
 					</CssBaseline>
 				</ThemeProvider>
 			</>

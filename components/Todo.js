@@ -38,7 +38,7 @@ export default () => {
 	const initialState = [
 		{
 			id: 'vnode',
-			text: 'A simple initial todo',
+			text: 'A simple initial todo task without any explain',
 			completed: false,
 		},
 	]

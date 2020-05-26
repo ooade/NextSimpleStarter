@@ -39,7 +39,7 @@ export default () => {
 		{
 			id: 'vnode',
 			text: 'A simple initial todo task without any explain',
-			completed: false,
+			completed: true,
 		},
 	]
 	const [todos, setTodos] = useState(initialState)

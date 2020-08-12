@@ -5,6 +5,9 @@
 	"repository": {
 		"url": "https://github.com/ooade/NextSimpleStarter"
 	},
+  "engines": {
+    "node": ">=10.0.0"
+  },
 	"license": "MIT",
 	"eslintConfig": {
 		"extends": "react-app"

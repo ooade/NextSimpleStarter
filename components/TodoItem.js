@@ -54,20 +54,20 @@ const TodoItem = ({ todo, updateTodo, removeTodo }) => {
 
 	return (
 		<li className={classes.todoItem}>
-			<Checkbox
-				checked={todo.completed}
-				onChange={() => updateTodo({ ...todo, completed: !todo.completed })}
-				color="primary"
-			/>
-			<span
+			<label
 				className={
 					todo.completed
 						? `${classes.textWithStrike} ${classes.text}`
 						: classes.text
 				}
 			>
+				<Checkbox
+					checked={todo.completed}
+					onChange={() => updateTodo({ ...todo, completed: !todo.completed })}
+					color="primary"
+				/>
 				{todo.text}
-			</span>
+			</label>
 			<Fab
 				aria-label="Delete Todo"
 				onClick={() => removeTodo(todo)}

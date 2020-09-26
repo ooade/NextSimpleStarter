@@ -43,10 +43,14 @@ export default class MyApp extends App {
 			<>
 				<Head>
 					<title>Todo App</title>
+					<meta
+						name="viewport"
+						content="width=device-width, initial-scale=1.0"
+					/>
 				</Head>
 				<ThemeProvider theme={theme}>
 					<CssBaseline>
-							<Component {...pageProps} />
+						<Component {...pageProps} />
 					</CssBaseline>
 				</ThemeProvider>
 			</>

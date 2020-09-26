@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }))
 
-export default () => {
+const Todo = () => {
 	const classes = useStyles()
 	const initialState = [
 		{
@@ -88,7 +88,7 @@ export default () => {
 			<header>
 				<img
 					src="/static/img/android-chrome-192x192.png"
-					alt="Logo"
+					alt="Next Simple Starter"
 					width="192"
 					height="192"
 				/>
@@ -125,3 +125,5 @@ export default () => {
 		</Grid>
 	)
 }
+
+export default Todo;

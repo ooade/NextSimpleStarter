@@ -8,7 +8,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"isomorphic-fetch": "^2.2.1",
-		"next": "^9.0.0",
+		"next": "^9.3.2",
 		"next-offline": "^4.0.0",
 		"next-redux-wrapper": "^3.0.0-alpha.2",
 		"react": "^16.8.6",

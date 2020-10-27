@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Image from 'next/image'
 import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
@@ -11,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
 		margin: 'auto',
 		marginTop: 40,
 		textAlign: 'center',
+	},
+	logo: {
+		left: 'unset !important'
 	},
 	srOnly: {
 		width: 0,
@@ -86,7 +90,8 @@ const Todo = () => {
 			direction="column"
 		>
 			<header>
-				<img
+				<Image
+					className={classes.logo}
 					src="/static/img/android-chrome-192x192.png"
 					alt="Next Simple Starter"
 					width="192"

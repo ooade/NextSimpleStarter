@@ -13,6 +13,10 @@ node_js:
 install:
   - npm install
 
+branches:
+  only:
+    - main
+
 script:
   - npm run build
 

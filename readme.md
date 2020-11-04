@@ -88,7 +88,7 @@ Just follow <a href="https://github.com/mars/heroku-nextjs">Mars's Guide</a> and
 - On netlify, Click on new site from git.
 - Select Cloned Repository.
 - Choose VCS.
-- Add build command `npm run export`.
+- Add build command `next build && next export`.
 - Add publish directory `out`.
 
 ### Deploy to Gitpod

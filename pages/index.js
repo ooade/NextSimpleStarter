@@ -1,20 +1,24 @@
-import React from 'react'
 import Fork from '../components/Fork'
 import Todo from '../components/Todo'
 
-const Index = ({ stars }) => (
-	<React.Fragment>
-		<Fork stars={stars} />
-		<Todo />
-	</React.Fragment>
-)
+export default function Index({ stars }) {
+	return (
+		<>
+			<Fork stars={stars} />
+			<Todo />
+		</>
+	)
+}
 
-Index.getInitialProps = async () => {
+export async function getServerSideProps() {
 	const res = await fetch(
 		'https://api.github.com/repos/ooade/NextSimpleStarter'
 	)
 	const json = await res.json()
-	return { stars: json.stargazers_count }
-}
 
-export default Index
+	return {
+		props: {
+			stars: json.stargazers_count,
+		},
+	}
+}

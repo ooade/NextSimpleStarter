@@ -17,7 +17,8 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Deploy on Vercel
+## Deployment
+### Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fooade%2FNextSimpleStarter) from the creators of Next.js.
 
@@ -25,7 +26,7 @@ Check out the [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fooade%2FNextSimpleStarter)
 
-## Deploy to Netlify
+### Deploy to Netlify
 
 - On netlify, Click on new site from git.
 - Select Cloned Repository.
@@ -33,7 +34,7 @@ Check out the [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Add build command `next build && next export`.
 - Add publish directory `out`.
 
-## Deploy to Gitpod
+### Deploy to Gitpod
 
 <a href="https://gitpod.io/#https://github.com/ooade/NextSimpleStarter">Click here</a> to deploy on Gitpod.
 

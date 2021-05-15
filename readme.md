@@ -26,15 +26,15 @@ Check out the [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fooade%2FNextSimpleStarter)
 
-### ⊚ Deploy to Netlify
+### ⊚ Deploy on Netlify
 
-- On netlify, Click on new site from git.
+- On Netlify, Click on new site from git.
 - Select Cloned Repository.
 - Choose VCS.
 - Add build command `next build && next export`.
 - Add publish directory `out`.
 
-### ⊚ Deploy to Gitpod
+### ⊚ Deploy on Gitpod
 
 <a href="https://gitpod.io/#https://github.com/ooade/NextSimpleStarter">Click here</a> to deploy on Gitpod.
 

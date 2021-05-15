@@ -92,13 +92,14 @@ const Todo = () => {
 			<header>
 				<Image
 					className={classes.logo}
-					src="/static/img/android-chrome-192x192.png"
-					alt="Next Simple Starter"
+					src="/static/img/splashscreen-icon-384x384.png"
+					alt=""
 					width="192"
 					height="192"
 				/>
+				<h1 className={classes.srOnly}> Todo App </h1>
 			</header>
-			<Paper component="main" className={classes.paper} elevation={3}>
+			<Paper className={classes.paper} elevation={3}>
 				<form onSubmit={handleAddTodo} className={classes.form}>
 					<TextField
 						fullWidth
@@ -117,9 +118,9 @@ const Todo = () => {
 					)}
 				</form>
 				<ul className={classes.list}>
-					{todos.map((todo, i) => (
+					{todos.map((todo) => (
 						<TodoItem
-							key={i}
+							key={todo.id}
 							todo={todo}
 							updateTodo={updateTodo}
 							removeTodo={removeTodo}

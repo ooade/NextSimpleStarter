@@ -66,10 +66,8 @@ MyDocument.getInitialProps = async (ctx) => {
 		...initialProps,
 		// Styles fragment is rendered after the app and page rendering finish.
 		styles: [
-			<React.Fragment key="styles">
-				{initialProps.styles}
-				{sheets.getStyleElement()}
-			</React.Fragment>,
+			...React.Children.toArray(initialProps.styles),
+			sheets.getStyleElement(),
 		],
 	}
 }

@@ -15,13 +15,6 @@ module.exports = withOffline({
 				},
 			},
 			{
-				urlPattern: /^https:\/\/code\.getmdl\.io.*/,
-				handler: 'CacheFirst',
-				options: {
-					cacheName: 'lib-cache',
-				},
-			},
-			{
 				urlPattern: /^http.*/,
 				handler: 'NetworkFirst',
 				options: {

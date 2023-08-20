@@ -1,7 +1,10 @@
+'use client';
+
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Fab from '@material-ui/core/Fab'
 import Badge from '@material-ui/core/Badge'
+
 
 const useStyles = makeStyles(() => ({
 	fork: {
@@ -10,7 +13,6 @@ const useStyles = makeStyles(() => ({
 		top: 30
 	}
 }))
-
 const Fork = ({ stars }) => {
 	const classes = useStyles()
 	return (

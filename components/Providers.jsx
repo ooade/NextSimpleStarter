@@ -1,9 +1,19 @@
-import React, { useEffect } from 'react'
+'use client'
+
+import React, { useEffect, useLayoutEffect } from 'react'
 import ReactDOM from 'react-dom'
-import Head from 'next/head'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import CssBaseline from '@material-ui/core/CssBaseline';
+
+import { create } from 'jss';
+import { StylesProvider, jssPreset } from '@material-ui/core/styles';
+
+const jss = create({
+  ...jssPreset(),
+  // Define a custom insertion point that JSS will look for when injecting the styles into the DOM.
+  insertionPoint: 'jss-insertion-point',
+});
 
 const theme = createMuiTheme({
 	palette: {
@@ -16,7 +26,7 @@ const theme = createMuiTheme({
 	},
 })
 
-const MyApp = ({ Component, pageProps }) => {
+const Providers = ({ children }) => {
 	useEffect(() => {
 		if (process.env.NODE_ENV !== 'production') {
 			const axe = require('react-axe')
@@ -32,17 +42,17 @@ const MyApp = ({ Component, pageProps }) => {
 
 	return (
 		<>
-			<Head>
-				<title>Todo App</title>
-				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			</Head>
+		<StylesProvider injectFirst>
 			<ThemeProvider theme={theme}>
+
 				<CssBaseline>
-					<Component {...pageProps} />
+					{children}
 				</CssBaseline>
 			</ThemeProvider>
+		</StylesProvider>
+
 		</>
 	)
 }
 
-export default MyApp
+export default Providers

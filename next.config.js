@@ -17,7 +17,7 @@ module.exports = withPwa({
 			options: {
 			cacheName: 'assets-cache',
 			cacheableResponse: {
-					tatuses: [0, 200],
+					statuses: [0, 200],
 				},
 			},
 		},

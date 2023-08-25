@@ -1,13 +1,9 @@
-// const withOffline = require('next-offline');
+const withPWA = require('next-pwa');
 
-const withPwa= require('next-pwa')
-
-
-
-module.exports = withPwa({
+module.exports = withPWA({
 	dest: 'public',
-	register:true,
-	skipWaiting:true,
+	register: true,
+	skipWaiting: true,
 	disable: process.env.NODE_ENV === 'development',
 	swDest: 'static/service-worker.js',
 	runtimeCaching: [
@@ -29,5 +25,4 @@ module.exports = withPwa({
 			},
 		},
 	],
-	
-})
+});

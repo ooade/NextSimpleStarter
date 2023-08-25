@@ -5,9 +5,9 @@ out
 *-error.log
 
 # PWA files
-**/public/sw.js
+**/public/service-worker.js
 **/public/workbox-*.js
 **/public/worker-*.js
-**/public/sw.js.map
+**/public/service-worker.js.map
 **/public/workbox-*.js.map
 **/public/worker-*.js.map

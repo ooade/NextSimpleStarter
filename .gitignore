@@ -3,3 +3,11 @@ static/sw.js
 .next
 out
 *-error.log
+
+# PWA files
+**/public/service-worker.js
+**/public/workbox-*.js
+**/public/worker-*.js
+**/public/service-worker.js.map
+**/public/workbox-*.js.map
+**/public/worker-*.js.map

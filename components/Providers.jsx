@@ -1,19 +1,15 @@
 'use client'
 
-import React, { useEffect, useLayoutEffect } from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { createTheme } from '@mui/material';
 import { ThemeProvider } from '@mui/styles'
 import CssBaseline from '@mui/material/CssBaseline';
 
-import { create } from 'jss';
-import { StylesProvider, jssPreset } from '@mui/styles';
 
-const jss = create({
-  ...jssPreset(),
-  // Define a custom insertion point that JSS will look for when injecting the styles into the DOM.
-  insertionPoint: 'jss-insertion-point',
-});
+import { StylesProvider } from '@mui/styles';
+
+
 
 const theme = createTheme({
 	palette: {

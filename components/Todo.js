@@ -113,7 +113,7 @@ const Todo = () => {
 					/>
 					<button className={classes.srOnly}> Submit Todo </button>
 					{!!todos.length && (
-						<Grid container justify="space-between">
+						<Grid container justifyContent="space-between">
 							<Grid item>Total: {todos.length}</Grid>
 							<Grid item>Completed: {completedTodos.length}</Grid>
 						</Grid>

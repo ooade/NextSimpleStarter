@@ -17,12 +17,13 @@ const Fork = ({ stars }) => {
 	const classes = useStyles()
 	return (
 		<div className={classes.fork}>
-			<Badge badgeContent={stars || 0} max={999} color="primary">
+			<Badge style={{zIndex: '99999'}} badgeContent={stars || 0} max={999} color="primary">
 				<Fab
 					target="_blank"
 					variant="extended"
 					rel="noreferrer noopener"
 					href="https://github.com/ooade/NextSimpleStarter"
+					style={{zIndex: 1}}
 				>
 					<svg
 						width="24"

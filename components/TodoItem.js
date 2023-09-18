@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import Fab from '@material-ui/core/Fab'
-import Checkbox from '@material-ui/core/Checkbox'
+import { makeStyles } from '@mui/styles'
+import Fab from '@mui/material/Fab'
+import Checkbox from '@mui/material/Checkbox'
 
 const DeleteIcon = () => (
 	<svg

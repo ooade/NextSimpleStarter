@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import Fab from '@material-ui/core/Fab'
-import Badge from '@material-ui/core/Badge'
+import { makeStyles } from '@mui/styles'
+import Fab from '@mui/material/Fab'
+import Badge from '@mui/material/Badge'
 
 
 const useStyles = makeStyles(() => ({

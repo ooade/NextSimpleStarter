@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import Paper from '@material-ui/core/Paper'
-import TextField from '@material-ui/core/TextField'
-import Grid from '@material-ui/core/Grid'
-import { makeStyles } from '@material-ui/core/styles'
+import Paper from '@mui/material/Paper'
+import TextField from '@mui/material/TextField'
+import Grid from '@mui/material/Grid'
+import { makeStyles } from '@mui/styles'
 import TodoItem from './TodoItem'
 
 const useStyles = makeStyles((theme) => ({

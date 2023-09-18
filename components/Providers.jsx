@@ -2,12 +2,12 @@
 
 import React, { useEffect, useLayoutEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { createMuiTheme } from '@material-ui/core/styles'
-import { ThemeProvider } from '@material-ui/styles'
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { createTheme } from '@mui/material';
+import { ThemeProvider } from '@mui/styles'
+import CssBaseline from '@mui/material/CssBaseline';
 
 import { create } from 'jss';
-import { StylesProvider, jssPreset } from '@material-ui/core/styles';
+import { StylesProvider, jssPreset } from '@mui/styles';
 
 const jss = create({
   ...jssPreset(),
@@ -15,7 +15,7 @@ const jss = create({
   insertionPoint: 'jss-insertion-point',
 });
 
-const theme = createMuiTheme({
+const theme = createTheme({
 	palette: {
 		background: {
 			default: '#EEE',

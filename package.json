@@ -24,7 +24,7 @@
 		"now-build": "next build"
 	},
 	"dependencies": {
-		"@material-ui/core": "^4.11.4",
+		"@material-ui/core": "^4.11.2",
 		"next": "^13.4.19",
 		"next-offline": "^5.0.5",
 		"react": "^18.2.0",

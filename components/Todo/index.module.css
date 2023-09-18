@@ -1,0 +1,28 @@
+.todo {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+}
+.logo {
+    left: unset !important
+}
+.srOnly {
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -9999px;
+    overflow: hidden;
+}
+.paper {
+    width: 100%;
+}
+.form {
+    padding: 16px;
+}
+.list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+    border-radius: 0 0 4px 4px;
+}

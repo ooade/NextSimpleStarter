@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react'
-import { makeStyles } from '@mui/styles'
 import Fab from '@mui/material/Fab'
 import Checkbox from '@mui/material/Checkbox'
+import styles from './index.module.css'
 
 const DeleteIcon = () => (
 	<svg
@@ -20,50 +20,17 @@ const DeleteIcon = () => (
 	</svg>
 )
 
-const useStyles = makeStyles((theme) => ({
-	todoItem: {
-		display: 'flex',
-		padding: theme.spacing(1),
-		opacity: 0,
-		animationName: '$slideDown',
-		animationDuration: '300ms',
-		animationFillMode: 'forwards',
-		animationDelay: '0s',
-		animationTimingFunction: 'cubic-bezier(0.1, 0.23, 0.23, 1.44)',
-		'&:nth-child(even)': {
-			background: '#EEF6FF',
-		},
-	},
-	'@keyframes slideDown': {
-		from: {
-			opacity: 0,
-			transform: 'translateY(-10px)',
-		},
-		to: {
-			opacity: 1,
-			transform: 'translateY(0px)',
-		},
-	},
-	text: {
-		flex: 1,
-		display: 'flex',
-		alignItems: 'center',
-	},
-	textWithStrike: {
-		textDecoration: 'line-through',
-	},
-}))
+
 
 const TodoItem = ({ todo, updateTodo, removeTodo }) => {
-	const classes = useStyles()
 
 	return (
-		<li className={classes.todoItem}>
+		<li className={styles.todoItem}>
 			<label
 				className={
 					todo.completed
-						? `${classes.textWithStrike} ${classes.text}`
-						: classes.text
+						? `${styles.textWithStrike} ${styles.text}`
+						: styles.text
 				}
 			>
 				<Checkbox

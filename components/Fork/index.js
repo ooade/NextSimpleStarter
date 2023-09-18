@@ -1,22 +1,15 @@
 'use client';
 
 import React from 'react'
-import { makeStyles } from '@mui/styles'
 import Fab from '@mui/material/Fab'
 import Badge from '@mui/material/Badge'
+import styles from './index.module.css'
 
 
-const useStyles = makeStyles(() => ({
-	fork: {
-		position: 'absolute',
-		right: 30,
-		top: 30
-	}
-}))
+
 const Fork = ({ stars }) => {
-	const classes = useStyles()
 	return (
-		<div className={classes.fork}>
+		<div className={styles.fork}>
 			<Badge style={{zIndex: '99999'}} badgeContent={stars || 0} max={999} color="primary">
 				<Fab
 					target="_blank"

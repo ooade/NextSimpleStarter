@@ -1,28 +1,22 @@
 'use client';
 
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import Fab from '@material-ui/core/Fab'
-import Badge from '@material-ui/core/Badge'
+import Fab from '@mui/material/Fab'
+import Badge from '@mui/material/Badge'
+import styles from './index.module.css'
 
 
-const useStyles = makeStyles(() => ({
-	fork: {
-		position: 'absolute',
-		right: 30,
-		top: 30
-	}
-}))
+
 const Fork = ({ stars }) => {
-	const classes = useStyles()
 	return (
-		<div className={classes.fork}>
-			<Badge badgeContent={stars || 0} max={999} color="primary">
+		<div className={styles.fork}>
+			<Badge style={{zIndex: '99999'}} badgeContent={stars || 0} max={999} color="primary">
 				<Fab
 					target="_blank"
 					variant="extended"
 					rel="noreferrer noopener"
 					href="https://github.com/ooade/NextSimpleStarter"
+					style={{zIndex: 1}}
 				>
 					<svg
 						width="24"

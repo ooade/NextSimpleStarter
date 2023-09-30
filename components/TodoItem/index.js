@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react'
 import Fab from '@mui/material/Fab'
 import Checkbox from '@mui/material/Checkbox'

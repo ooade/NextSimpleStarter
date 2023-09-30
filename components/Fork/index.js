@@ -1,9 +1,9 @@
-'use client';
-
 import React from 'react'
 import Fab from '@mui/material/Fab'
 import Badge from '@mui/material/Badge'
 import styles from './index.module.css'
+
+
 
 
 

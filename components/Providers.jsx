@@ -1,11 +1,17 @@
+'use client'
+
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import Head from 'next/head'
-import { createMuiTheme } from '@material-ui/core/styles'
-import { ThemeProvider } from '@material-ui/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import { createTheme } from '@mui/material';
+import { ThemeProvider } from '@mui/styles'
+import CssBaseline from '@mui/material/CssBaseline';
 
-const theme = createMuiTheme({
+
+import { StylesProvider } from '@mui/styles';
+
+
+
+const theme = createTheme({
 	palette: {
 		background: {
 			default: '#EEE',
@@ -16,7 +22,7 @@ const theme = createMuiTheme({
 	},
 })
 
-const MyApp = ({ Component, pageProps }) => {
+const Providers = ({ children }) => {
 	useEffect(() => {
 		if (process.env.NODE_ENV !== 'production') {
 			const axe = require('react-axe')
@@ -32,17 +38,17 @@ const MyApp = ({ Component, pageProps }) => {
 
 	return (
 		<>
-			<Head>
-				<title>Todo App</title>
-				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			</Head>
+		<StylesProvider injectFirst>
 			<ThemeProvider theme={theme}>
+
 				<CssBaseline>
-					<Component {...pageProps} />
+					{children}
 				</CssBaseline>
 			</ThemeProvider>
+		</StylesProvider>
+
 		</>
 	)
 }
 
-export default MyApp
+export default Providers

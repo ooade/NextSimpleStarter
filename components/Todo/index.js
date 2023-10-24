@@ -1,44 +1,16 @@
+'use client';
+
 import React, { useState } from 'react'
 import Image from 'next/image'
-import Paper from '@material-ui/core/Paper'
-import TextField from '@material-ui/core/TextField'
-import Grid from '@material-ui/core/Grid'
-import { makeStyles } from '@material-ui/core/styles'
-import TodoItem from './TodoItem'
+import Paper from '@mui/material/Paper'
+import TextField from '@mui/material/TextField'
+import Grid from '@mui/material/Grid'
+import TodoItem from '../TodoItem'
+import styles from './index.module.css'
 
-const useStyles = makeStyles((theme) => ({
-	todo: {
-		maxWidth: 400,
-		margin: 'auto',
-		marginTop: 40,
-		textAlign: 'center',
-	},
-	logo: {
-		left: 'unset !important'
-	},
-	srOnly: {
-		width: 0,
-		height: 0,
-		position: 'absolute',
-		left: '-9999px',
-		overflow: 'hidden',
-	},
-	paper: {
-		width: '100%',
-	},
-	form: {
-		padding: theme.spacing(2),
-	},
-	list: {
-		listStyle: 'none',
-		padding: 0,
-		marginBottom: 0,
-		borderRadius: '0 0 4px 4px',
-	},
-}))
+
 
 const Todo = () => {
-	const classes = useStyles()
 	const initialState = [
 		{
 			id: 'vnode',
@@ -85,22 +57,22 @@ const Todo = () => {
 	return (
 		<Grid
 			container
-			className={classes.todo}
+			className={styles.todo}
 			justify="center"
 			direction="column"
 		>
 			<header>
 				<Image
-					className={classes.logo}
+					className={styles.logo}
 					src="/static/img/splashscreen-icon-384x384.png"
 					alt=""
 					width="192"
 					height="192"
 				/>
-				<h1 className={classes.srOnly}> Todo App </h1>
+				<h1 className={styles.srOnly}> Todo App </h1>
 			</header>
-			<Paper className={classes.paper} elevation={3}>
-				<form onSubmit={handleAddTodo} className={classes.form}>
+			<Paper className={styles.paper} elevation={3}>
+				<form onSubmit={handleAddTodo} className={styles.form}>
 					<TextField
 						fullWidth
 						value={text}
@@ -109,15 +81,15 @@ const Todo = () => {
 						onChange={handleTextChange}
 						inputProps={{ 'aria-label': 'What must be done?' }}
 					/>
-					<button className={classes.srOnly}> Submit Todo </button>
+					<button className={styles.srOnly}> Submit Todo </button>
 					{!!todos.length && (
-						<Grid container justify="space-between">
+						<Grid container justifyContent={'space-between'}>
 							<Grid item>Total: {todos.length}</Grid>
 							<Grid item>Completed: {completedTodos.length}</Grid>
 						</Grid>
 					)}
 				</form>
-				<ul className={classes.list}>
+				<ul className={styles.list}>
 					{todos.map((todo) => (
 						<TodoItem
 							key={todo.id}

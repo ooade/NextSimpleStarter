@@ -1,0 +1,37 @@
+.todoItem {
+    display: flex;
+    padding: 8px;
+    opacity: 0;
+    animation-name: slideDown;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+    animation-timing-function: cubic-bezier(0.1, 0.23, 0.23, 1.44);
+}
+
+.todoItem:nth-child(even) {
+    background: #EEF6FF;
+}
+
+@keyframes slideDown {
+
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.textWithStrike {
+    text-decoration: line-through;
+}

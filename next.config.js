@@ -1,6 +1,8 @@
-const withPWA = require('next-pwa');
+/** @type {import('next').NextConfig} */
 
-module.exports = withPWA({
+const nextConfig = {}
+
+const withPWA = require('next-pwa')({
 	dest: 'public',
 	register: true,
 	skipWaiting: true,
@@ -11,8 +13,8 @@ module.exports = withPWA({
 			urlPattern: /[.](png|jpg|ico|css)/,
 			handler: 'CacheFirst',
 			options: {
-			cacheName: 'assets-cache',
-			cacheableResponse: {
+				cacheName: 'assets-cache',
+				cacheableResponse: {
 					statuses: [0, 200],
 				},
 			},
@@ -25,4 +27,6 @@ module.exports = withPWA({
 			},
 		},
 	],
-});
+})
+
+module.exports = withPWA(nextConfig)

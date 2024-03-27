@@ -8,10 +8,14 @@ const roboto = Roboto({
     weight: ['300', '400', '500', '700']
 })
 
+export const viewport  = {
+	themeColor: '#673ab7',
+}
+
 export const metadata = {
     title: 'Todo App',
     description: "An example of NextJS app with 100% accessible lighthouse score",
-    themeColor: '#673ab7',
+    
     manifest: "/static/manifest.json"
 
 }

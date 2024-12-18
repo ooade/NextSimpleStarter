@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  test_push:
+  build_on_pr_or_push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,4 +15,5 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
+      - run: yarn ci
       - run: yarn run build

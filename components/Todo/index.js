@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import React, { useState } from 'react'
 import Image from 'next/image'
@@ -7,8 +7,6 @@ import TextField from '@mui/material/TextField'
 import Grid from '@mui/material/Grid'
 import TodoItem from '../TodoItem'
 import styles from './index.module.css'
-
-
 
 const Todo = () => {
 	const initialState = [
@@ -55,12 +53,7 @@ const Todo = () => {
 	}
 
 	return (
-		<Grid
-			container
-			className={styles.todo}
-			justify="center"
-			direction="column"
-		>
+		<Grid container className={styles.todo} justify="center" direction="column">
 			<header>
 				<Image
 					className={styles.logo}
@@ -68,6 +61,7 @@ const Todo = () => {
 					alt=""
 					width="192"
 					height="192"
+					priority={true}
 				/>
 				<h1 className={styles.srOnly}> Todo App </h1>
 			</header>
@@ -104,4 +98,4 @@ const Todo = () => {
 	)
 }
 
-export default Todo;
+export default Todo

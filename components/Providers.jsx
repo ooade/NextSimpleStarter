@@ -2,14 +2,11 @@
 
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { createTheme } from '@mui/material';
+import { createTheme } from '@mui/material'
 import { ThemeProvider } from '@mui/styles'
-import CssBaseline from '@mui/material/CssBaseline';
+import CssBaseline from '@mui/material/CssBaseline'
 
-
-import { StylesProvider } from '@mui/styles';
-
-
+import { StylesProvider } from '@mui/styles'
 
 const theme = createTheme({
 	palette: {
@@ -38,15 +35,11 @@ const Providers = ({ children }) => {
 
 	return (
 		<>
-		<StylesProvider injectFirst>
-			<ThemeProvider theme={theme}>
-
-				<CssBaseline>
-					{children}
-				</CssBaseline>
-			</ThemeProvider>
-		</StylesProvider>
-
+			<StylesProvider injectFirst>
+				<ThemeProvider theme={theme}>
+					<CssBaseline>{children}</CssBaseline>
+				</ThemeProvider>
+			</StylesProvider>
 		</>
 	)
 }

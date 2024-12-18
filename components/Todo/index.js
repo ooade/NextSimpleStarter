@@ -7,38 +7,11 @@ import TextField from '@mui/material/TextField'
 import Grid from '@mui/material/Grid'
 import TodoItem from '../TodoItem'
 import styles from './index.module.css'
+import { useTodo } from '../../hooks/useTodo'
 
 const Todo = () => {
-	const initialState = [
-		{
-			id: 'vnode',
-			text: 'A simple initial todo',
-			completed: false,
-		},
-	]
-	const [todos, setTodos] = useState(initialState)
 	const [text, setText] = useState('')
-
-	const addTodo = (text) => {
-		const todo = {
-			id: Math.random().toString(36).substring(2),
-			text,
-			completed: false,
-		}
-		setTodos([...todos, todo])
-	}
-
-	const removeTodo = (todo) => {
-		const filteredTodos = todos.filter((v) => v !== todo)
-		setTodos(filteredTodos)
-	}
-
-	const updateTodo = (todo) => {
-		const updatedTodos = todos.map((v) => (v.id === todo.id ? todo : v))
-		setTodos(updatedTodos)
-	}
-
-	const completedTodos = todos.filter((todo) => todo.completed)
+	const { todos, addTodo, updateTodo, removeTodo, completedTodos } = useTodo()
 
 	const handleAddTodo = (e) => {
 		e.preventDefault()
